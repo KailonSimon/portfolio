@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 export default function Layout({ children }) {
   return (
-    <div className="h-screen bg-main flex flex-col">
+    <div className="h-screen bg-quaternary flex flex-col background">
       <Navbar />
       <main>{children}</main>
     </div>
