@@ -8,7 +8,7 @@ function Navbar() {
         <div className="md:hidden menu-button">
           <Menu2 />
         </div>
-        <h1 className="logo">Kailon Simon</h1>
+        <h1 className="logo">KS</h1>
         <div className="hidden md:flex md:gap-4">
           <button className="bg-quaternary">Home</button>
           <button className="bg-quaternary">Projects</button>

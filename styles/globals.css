@@ -54,7 +54,8 @@ a {
   height: 100%;
 }
 
-button {
+button,
+.link-button {
   border: 2px solid #112d4e;
   color: #112d4e;
   border-radius: 30px;
@@ -74,25 +75,49 @@ button {
   min-width: 100px;
 }
 
-button:hover {
+button:hover,
+.link-button:hover {
   background-color: #fff;
 }
 
-button:active {
+button:active,
+.link-button:hover {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
 
 @media (min-width: 768px) {
-  button {
+  button,
+  .link-button {
     min-width: 120px;
     padding: 0 25px;
   }
 }
 
+.action-button {
+  border-radius: 15px;
+  min-width: 0px;
+  padding: 8px;
+}
+
+.social-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
 .navbar {
   background: #ed1d24;
   border: solid 2px #000;
+  position: fixed;
+  z-index: 999;
+}
+
+.footer {
+  background: #ed1d24;
+  border: solid 2px #000;
+  height: 128px;
+  padding: 4vh;
 }
 
 .menu-button {
@@ -141,13 +166,16 @@ button:active {
 }
 
 .comic {
+  position: relative;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
   gap: 8px;
   font-family: "Comic Neue", cursive;
   font-weight: bold;
   padding: 1vmin;
+  min-height: calc(100vh - 192px);
 }
 
 .comic .panel {
