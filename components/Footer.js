@@ -3,7 +3,7 @@ import Button from "./Button";
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <div className="footer" id="footer">
       <div className="social-button-container">
         <Button href="https://github.com/KailonSimon">
           <BrandGithub />

@@ -3,9 +3,29 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: Bangers, system-ui, sans-serif;
+  :root {
+    --1: #1f1f1f;
+    --2: #383838;
+    --3: #99aab5;
+    --4: #ffffff;
+    --5: #7289da;
+    --nav-color: rgba(31, 31, 31, 0.8);
+    --footer-height: 128px;
   }
+
+  html {
+    font-family: "Poppins", system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Staatliches, system-ui, sans-serif;
 }
 
 html,
@@ -17,6 +37,13 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  color: var(--4);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--5);
 }
 
 * {
@@ -25,41 +52,54 @@ a {
 
 .logo {
   font-size: 2rem;
-  color: #f9f7f7;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: black;
-  filter: drop-shadow(2px 2px #000);
+  color: var(--4);
+  font-weight: 700;
 }
 
-.background {
-  background-image: linear-gradient(
-      45deg,
-      black 25%,
-      transparent 25%,
-      transparent 75%,
-      black 75%,
-      black
-    ),
-    linear-gradient(
-      45deg,
-      black 25%,
-      transparent 25%,
-      transparent 75%,
-      black 75%,
-      black
-    ),
-    linear-gradient(#fff, #ed1d24);
-  background-size: 4px 4px, 4px 4px, 100% 100%;
-  background-position: 0px 0px, 2px 2px, 0px 0px;
+.content-wrapper {
+  min-height: calc(100vh - var(--footer-height));
+  color: var(--4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--1);
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  background-attachment: fixed;
+}
+
+#hero {
+  width: 100%;
   height: 100%;
+  min-height: 100vh;
+  max-width: 1333px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--4);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.hero-title span {
+  color: var(--5);
 }
 
 button,
 .link-button {
-  border: 2px solid #112d4e;
-  color: #112d4e;
-  border-radius: 30px;
-  box-shadow: #422800 4px 4px 0 0;
+  border: 2px solid var(--2);
+  color: var(--1);
+  border-radius: 8px;
+  background-color: var(--4);
+  box-shadow: var(--5) 4px 4px 0 0;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
@@ -73,6 +113,7 @@ button,
   touch-action: manipulation;
   font-family: Bangers, system-ui;
   min-width: 100px;
+  font-weight: 700;
 }
 
 button:hover,
@@ -81,8 +122,8 @@ button:hover,
 }
 
 button:active,
-.link-button:hover {
-  box-shadow: #422800 2px 2px 0 0;
+.link-button:active {
+  box-shadow: var(--1) 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
 
@@ -95,7 +136,7 @@ button:active,
 }
 
 .action-button {
-  border-radius: 15px;
+  border-radius: 8px;
   min-width: 0px;
   padding: 8px;
 }
@@ -106,110 +147,124 @@ button:active,
   gap: 8px;
 }
 
-.navbar {
-  background: #ed1d24;
-  border: solid 2px #000;
+.footer {
+  background: var(--1);
+}
+
+.navbar,
+.mobile-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //border-bottom: 1px solid var(--2);
   position: fixed;
   z-index: 999;
+  padding: 2rem;
+  background-color: var(--nav-color);
+}
+
+.navbar {
+  display: none;
+}
+
+.navbar-inner {
+  width: 100%;
+  max-width: 1333px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nav-button-container {
+  display: flex;
+  gap: 16px;
+}
+
+@media screen and (min-width: 600px) {
+  .navbar {
+    display: flex;
+  }
+  .mobile-navbar {
+    display: none;
+  }
 }
 
 .footer {
-  background: #ed1d24;
-  border: solid 2px #000;
-  height: 128px;
+  height: var(--footer-height);
+  border-top: 1px solid var(--2);
   padding: 4vh;
 }
 
 .menu-button {
-  color: white;
-  filter: drop-shadow(2px 2px #422800);
+  color: var(--4);
+  filter: drop-shadow(2px 2px var(--2));
 }
 
-.bubble {
-  position: relative;
-  color: #000;
-  box-shadow: #422800 0 0 0;
-  text-align: center;
-  line-height: 36px;
-  background-color: #f9f7f7;
-  border: 3px solid #000;
-  border-radius: 8px;
-  padding: 24px 24px;
-  font-size: 24px;
+#projects {
   height: fit-content;
+  width: 100%;
+  max-width: 100vw;
+  padding: 1rem 1.5rem;
 }
 
-.flipped {
-  transform: scaleX(-1);
-}
-
-.bubble:before,
-.bubble:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-}
-
-.speech:before {
-  left: 25px;
-  bottom: -38px;
-  border: 18px solid;
-  border-color: #000 transparent transparent #000;
-}
-
-.speech:after {
-  left: 28px;
-  bottom: -32px;
-  border: 30px solid;
-  border-color: #f9f7f7 transparent transparent #f9f7f7;
-}
-
-.comic {
-  position: relative;
+.projects-container {
   display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background-color: var(--1);
+  background-image: url("https://www.transparenttextures.com/patterns/real-carbon-fibre.png");
+  border: 1px solid var(--2);
+  border-radius: 16px;
+  display: grid;
   align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: 8px;
-  font-family: "Comic Neue", cursive;
-  font-weight: bold;
-  padding: 1vmin;
-  min-height: calc(100vh - 192px);
-}
-
-.comic .panel {
-  background-color: #fff;
-  background-image: radial-gradient(circle, #4c94f6, #4c69f6);
-  border: solid 2px #000;
-  box-shadow: 0 6px 6px -6px #000;
-  padding: 48px 16px;
-  display: inline-block;
-  height: fit-content;
-  overflow: hidden;
   position: relative;
-  width: 800px;
-  max-width: calc(100vw - 32px);
+  grid-template-columns: 1fr;
+  padding: 0 1rem;
 }
 
-.comic-title {
-  background-color: #fff;
-  border: solid 2px #000;
-  margin: 0;
-  padding: 3px 10px;
-  z-index: 99;
+.project-card-header,
+.project-card-content,
+.project-card-footer {
 }
 
-.comic .top-left {
-  left: -6px;
-  position: absolute;
-  top: -2px;
-  transform: skew(-15deg);
+.project-card-title {
+  padding: 1rem 0;
+  font-weight: 300;
 }
 
-.comic .top-right {
-  right: -6px;
-  position: absolute;
-  top: -2px;
-  transform: skew(-15deg);
+.project-card-title h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.project-card-content {
+  font-size: 1rem;
+}
+
+.project-card-footer {
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 1.6rem;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.project-tag {
+  padding: 0.2rem 1.6rem;
+  border-radius: 4rem;
+  font-size: 0.75rem;
+  color: white;
+  background-color: var(--2);
+  box-shadow: 0 0 1rem rgb(0 0 0 / 5%);
 }

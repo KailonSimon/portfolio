@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
-import ComicPage from "../components/ComicPage";
-import SpeechBubble from "../components/SpeechBubble";
+import Projects from "../sections/Projects";
+import Hero from "../sections/Hero";
 
 export default function Home() {
   return (
@@ -9,7 +9,8 @@ export default function Home() {
       <Head>
         <title>Kailon Simon | Developer</title>
       </Head>
-      <ComicPage />
+      <Hero />
+      <Projects />
     </>
   );
 }

@@ -4,9 +4,9 @@ import Navbar from "./Navbar";
 
 export default function Layout({ children }) {
   return (
-    <div className="h-screen bg-quaternary flex flex-col background">
+    <div className="flex flex-col">
       <Navbar />
-      <main style={{ marginTop: 66, padding: "16px 0" }}>{children}</main>
+      <main className="content-wrapper">{children}</main>
       <Footer />
     </div>
   );

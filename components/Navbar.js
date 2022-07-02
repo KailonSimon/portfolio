@@ -1,21 +1,51 @@
-import React from "react";
-import { Menu2 } from "tabler-icons-react";
+import { useState, useRef } from "react";
+import MenuButton from "./MenuButton";
+
+const sidebar = {
+  opened: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    transition: {
+      type: "spring",
+      stiffness: 20,
+      restDelta: 2,
+    },
+  }),
+  closed: {
+    clipPath: "circle(30px at 40px 40px)",
+    transition: {
+      delay: 0.5,
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
+    },
+  },
+};
 
 function Navbar() {
+  const [isOpen, toggleOpen] = useState(false);
+  const containerRef = useRef(null);
+
   return (
-    <div className="w-full h-16 flex items-center justify-center mb-8 navbar">
-      <div className="w-full max-w-6xl flex items-center justify-between px-4">
-        <div className="md:hidden menu-button">
-          <Menu2 />
+    <>
+      <nav className="navbar">
+        <div className="navbar-inner">
+          <h1 className="logo">Kailon Simon</h1>
+          <div id="nav-button-container">
+            <a href="#hero">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#footer">Contact</a>
+          </div>
         </div>
-        <h1 className="logo">KS</h1>
-        <div className="hidden md:flex md:gap-4">
-          <button className="bg-quaternary">Home</button>
-          <button className="bg-quaternary">Projects</button>
-          <button className="bg-quaternary">Contact</button>
+      </nav>
+      <nav className="mobile-navbar">
+        <div className="navbar-inner">
+          <h1 className="logo">KS</h1>
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <MenuButton />
+          </div>
         </div>
-      </div>
-    </div>
+      </nav>
+    </>
   );
 }
 
