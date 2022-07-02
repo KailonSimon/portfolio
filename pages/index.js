@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Head from "next/head";
 import Projects from "../sections/Projects";
 import Hero from "../sections/Hero";

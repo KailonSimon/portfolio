@@ -16,6 +16,9 @@
   html {
     font-family: "Poppins", system-ui, sans-serif;
     scroll-behavior: smooth;
+    background-color: var(--1);
+    background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+    background-attachment: fixed;
   }
 }
 
@@ -62,10 +65,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  background-color: var(--1);
-  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
-  background-attachment: fixed;
 }
 
 #hero {
@@ -87,6 +86,7 @@ a:hover {
 .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
+  line-height: 3.25rem;
 }
 
 .hero-title span {
@@ -157,7 +157,6 @@ button:active,
   display: flex;
   justify-content: center;
   align-items: center;
-  //border-bottom: 1px solid var(--2);
   position: fixed;
   z-index: 999;
   padding: 2rem;
