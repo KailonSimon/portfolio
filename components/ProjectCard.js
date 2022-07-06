@@ -1,12 +1,12 @@
-import React from "react";
+import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-export default function ProjectCard() {
+export default function ProjectCard({ project }) {
   const controls = useAnimation();
   const { ref, inView } = useInView();
-
+  const { title, info, tags } = project;
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -29,23 +29,37 @@ export default function ProjectCard() {
       variants={variants}
       transition={{ duration: 1 }}
     >
-      <div className="project-card-content"></div>
+      <div className="project-card-content">
+        <img
+          src={
+            "https://s3-ap-south-1.amazonaws.com/trt-blog-ghost/2022/01/Green-Podcast-Minimalist-Blog-Banner--20--1.png"
+          }
+          style={{ objectFit: "cover", borderRadius: 4 }}
+        />
+      </div>
       <div className="project-card-title">
-        <h2>Project Name</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
+        <h2>{title}</h2>
+        <p>{info}</p>
       </div>
       <div className="project-card-footer">
         <div className="project-tags">
-          <div className="project-tag">React</div>
-          <div className="project-tag">CSS</div>
-          <div className="project-tag">Redux</div>
+          {tags.map((tag) => {
+            return (
+              <div className="project-tag" key={tag}>
+                <Image
+                  src={`/icons/${tag}.svg`}
+                  alt={tag}
+                  height={15}
+                  width={15}
+                />
+                {tag}
+              </div>
+            );
+          })}
         </div>
       </div>
+
+      <a className="link-button">Go to</a>
     </motion.div>
   );
 }
