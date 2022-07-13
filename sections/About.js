@@ -11,8 +11,8 @@ function About() {
     "Java",
     "Kotlin",
   ];
-  const technologies = ["React", "Next.js", "Redux", "Git", "Node", "Android"];
-  const other = ["Tailwind", "Bootstrap", "MUI"];
+  const technologies = ["React", "Next.js", "Redux", "Android", "Node", "Git"];
+  const other = ["Tailwind", "Bootstrap", "Blender", "Firebase"];
   return (
     <section id="about" className="content">
       <h3 className="section-title">Skills</h3>
