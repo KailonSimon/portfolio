@@ -34,8 +34,10 @@ function Navbar() {
         position="right"
         withOverlay={false}
       >
-        <NavLinks />
-        <Socials />
+        <div className="drawer-content">
+          <NavLinks />
+          <Socials />
+        </div>
       </Drawer>
     </header>
   );

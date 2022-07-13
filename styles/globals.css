@@ -136,78 +136,6 @@ li > a::after {
   color: var(--5);
 }
 
-/*button,
-.link-button {
-  position: relative;
-  background: none;
-  color: var(--5);
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 0.2em solid var(--5);
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: 700;
-  width: min-content;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 8px;
-  white-space: nowrap;
-}
-
-button::before,
-.link-button::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 10%;
-  background: var(--1);
-  height: 0.3em;
-  right: 20%;
-  top: -0.21em;
-  transform: skewX(-45deg);
-  -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
-  transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
-}
-
-button::after,
-.link-button::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 10%;
-  background: var(--1);
-  height: 0.3em;
-  left: 20%;
-  bottom: -0.25em;
-  transform: skewX(45deg);
-  -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
-  transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
-}
-
-button:hover,
-.link-button:hover {
-  transform: scale(1.1);
-  transition: all 0.3s;
-}
-
-button:hover::before,
-.link-button:hover::before {
-  right: 80%;
-}
-
-button:hover::after,
-.link-button:hover::after {
-  left: 80%;
-}
-
-.action-button {
-  border-radius: 8px;
-  min-width: 0px;
-  padding: 8px;
-}*/
-
 .social-button-container {
   display: flex;
   justify-content: center;
@@ -251,7 +179,7 @@ header {
   top: 0;
   left: 0;
   z-index: 999;
-  background-color: rgba(56, 56, 56, 0.85);
+  background-color: rgba(56, 56, 56, 0.95);
 }
 
 .nav {
@@ -285,7 +213,7 @@ header {
 }
 
 .mantine-Drawer-drawer {
-  background: rgba(56, 56, 56, 0.85);
+  background: rgba(56, 56, 56, 0.95);
   height: calc(100vh - var(--nav-height));
   position: fixed;
   top: var(--nav-height);
@@ -342,7 +270,17 @@ header {
   }
 
   .socials {
+    gap: 1rem;
   }
+}
+
+.drawer-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 3rem;
 }
 
 .menu-button {
