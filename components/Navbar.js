@@ -1,13 +1,11 @@
-import { Link } from "react-scroll";
-import { BrandGithub, BrandLinkedin } from "tabler-icons-react";
-import MenuButton from "./MenuButton";
-
-const links = [
-  { href: "hero", text: "Home" },
-  { href: "about", text: "About" },
-];
+import { Drawer, Burger } from "@mantine/core";
+import { useState } from "react";
+import NavLinks from "./NavLinks";
+import Socials from "./Socials";
 
 function Navbar() {
+  const [opened, setOpened] = useState(false);
+
   return (
     <header>
       <nav className="nav grid">
@@ -17,50 +15,28 @@ function Navbar() {
           </a>
         </div>
         <div className="nav-menu" id="nav-menu">
-          <ul className="nav-list">
-            {links.map((link) => {
-              return (
-                <li className="nav-item" key={link.text}>
-                  <Link
-                    to={link.href}
-                    spy={true}
-                    smooth={true}
-                    offset={-75}
-                    duration={100}
-                    activeClass="active"
-                  >
-                    {link.text}
-                  </Link>
-                </li>
-              );
-            })}
-            <li className="nav-item">
-              <a href={"/resume.pdf"} target="_blank" rel="noopener noreferrer">
-                Resume
-              </a>
-            </li>
-          </ul>
+          <NavLinks handleClick={() => setOpened(false)} />
         </div>
         <div className="nav-socials">
-          <a
-            href="https://github.com/KailonSimon"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <BrandGithub size={24} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/kailon-simon-59b416230/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <BrandLinkedin size={24} />
-          </a>
+          <Socials />
         </div>
-        <div className="nav-toggle">
-          <MenuButton />
-        </div>
+        <Burger
+          className="nav-toggle"
+          opened={opened}
+          onClick={() => setOpened(!opened)}
+          size="sm"
+        />
       </nav>
+      <Drawer
+        opened={opened}
+        onClose={() => setOpened(false)}
+        size="full"
+        position="right"
+        withOverlay={false}
+      >
+        <NavLinks />
+        <Socials />
+      </Drawer>
     </header>
   );
 }

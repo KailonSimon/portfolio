@@ -1,11 +1,18 @@
+import { MantineProvider } from "@mantine/core";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <MantineProvider
+      theme={{ colorScheme: "dark" }}
+      withGlobalStyle
+      withNormalizeCss
+    >
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </MantineProvider>
   );
 }
 
