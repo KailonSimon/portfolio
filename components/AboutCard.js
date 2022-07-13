@@ -17,7 +17,7 @@ function AboutCard({ title, skills }) {
           >
             <span>{skill}</span>
             <Image
-              src={`/icons/${skill}.svg`}
+              src={`/icons/${skill.toLowerCase()}.svg`}
               alt={skill}
               height={25}
               width={25}
