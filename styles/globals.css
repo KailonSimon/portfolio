@@ -19,7 +19,6 @@
     background-color: var(--1);
     background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
     background-attachment: fixed;
-    font-size: 50%;
     animation: shift 240s linear infinite;
   }
 }
@@ -68,7 +67,7 @@ a:hover {
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: 1rem;
   color: var(--4);
   font-weight: 700;
 }
@@ -93,13 +92,13 @@ a:hover {
 }
 
 .hero-subtitle {
-  font-size: 2rem;
+  font-size: 1rem;
   color: var(--4);
   margin-bottom: 1rem;
 }
 
 .hero-title {
-  font-size: 7rem;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1;
 }
@@ -116,12 +115,16 @@ button,
   text-transform: uppercase;
   text-decoration: none;
   border: 0.2em solid var(--5);
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   cursor: pointer;
   font-weight: 700;
-  max-width: 120px;
+  width: min-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   border-radius: 8px;
+  white-space: nowrap;
 }
 
 button::before,
@@ -152,6 +155,12 @@ button::after,
   transform: skewX(45deg);
   -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
   transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+button:hover,
+.link-button:hover {
+  transform: scale(1.1);
+  transition: all 0.3s;
 }
 
 button:hover::before,
@@ -198,14 +207,14 @@ button:hover::after,
   align-items: center;
   position: fixed;
   z-index: 999;
-  padding: 2rem;
+  padding: 1rem;
   background-color: var(--nav-color);
 }
 
 .navbar {
   display: none;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
 }
 
 .navbar-inner {
@@ -236,10 +245,12 @@ button:hover::after,
 }
 
 .section-title {
-  font-size: 5rem;
-  font-weight: 600;
+  font-size: 3rem;
+  font-weight: 700;
   -webkit-text-stroke: 1px var(--5);
   color: transparent;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 #projects {
@@ -254,20 +265,17 @@ button:hover::after,
   flex-flow: row wrap;
   gap: 1rem;
   margin-top: 1rem;
+  justify-content: center;
 }
 
 .project-card {
   background-color: var(--1);
   background-image: url("https://www.transparenttextures.com/patterns/rebel.png");
   border: 2px solid var(--2);
-  border-radius: 16px;
+  border-radius: 8px;
   display: grid;
   align-items: center;
   position: relative;
-  grid-template-columns: 1fr;
-  padding: 2rem;
-  width: 100%;
-  max-width: 400px;
 }
 
 .project-card-header,
@@ -276,45 +284,50 @@ button:hover::after,
 }
 
 .project-card-title {
-  padding: 1rem 0;
-  font-weight: 300;
+  padding: 1rem;
+  font-size: 1rem;
 }
 
 .project-card-title h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .project-card-content {
-  font-size: 1rem;
-  //aspect-ratio: 16/9;
+  font-size: 2rem;
+  position: relative;
   width: 100%;
-  border: 2px solid var(--2);
-  border-radius: 4px;
-}
-
-.project-card-footer {
+  aspect-ratio: 16 / 9;
+  border-bottom: 2px solid var(--2);
+  padding: 1rem;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  grid-gap: 1.6rem;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+  justify-content: center;
 }
 
 .project-tag {
-  padding: 0.5rem 1.6rem;
+  padding: 0.5rem 1rem;
   border-radius: 4rem;
-  font-size: 1rem;
-  color: white;
+  font-size: 0.75rem;
+  color: var(--4);
   background-color: var(--2);
-  box-shadow: 0 0 1rem rgb(0 0 0 / 5%);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
+}
+
+.project-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
 }
 
 #about {
@@ -324,22 +337,46 @@ button:hover::after,
   padding: 0 3rem;
   margin-top: 2rem;
 }
-
-@media (min-width: 60em) {
-  html {
-    font-size: 56%;
-  }
+.about-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.about-card {
+  background-color: var(--1);
+  background-image: url("https://www.transparenttextures.com/patterns/rebel.png");
+  border: 2px solid var(--2);
+  border-radius: 8px;
+  position: relative;
+  min-width: 20rem;
 }
 
-@media (min-width: 68em) {
-  html {
-    font-size: 62.5%;
-  }
+.about-card-title {
+  background: var(--2);
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0.5rem 2rem;
+}
+
+.about-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.25rem;
+  padding: 1rem;
+  gap: 1rem;
+  min-height: 300px;
 }
 
 @media (min-width: 37.5rem) {
   #projects,
   #about {
     padding: 0 8rem;
+  }
+  .about-card-container {
   }
 }

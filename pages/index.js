@@ -10,7 +10,7 @@ export default function Home() {
         <title>Kailon Simon | Developer</title>
       </Head>
       <Hero />
-      <Projects />
+      <About />
     </>
   );
 }

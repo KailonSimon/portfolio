@@ -31,9 +31,13 @@ function Navbar() {
         <div className="navbar-inner">
           <h1 className="logo">Kailon Simon</h1>
           <div id="nav-button-container">
-            <a href="#hero">Home</a>
+            <a href="#">Home</a>
             <a href="#projects">Projects</a>
+            <a href="#about">About</a>
             <a href="#footer">Contact</a>
+            <a href={"/resume.pdf"} target="_blank" rel="noopener noreferrer">
+              Resume
+            </a>
           </div>
         </div>
       </nav>

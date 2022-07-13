@@ -18,6 +18,9 @@ export default function Footer() {
           <BrandGoogle />
         </Button>
       </div>
+      <span style={{ marginTop: 8, fontSize: "50%", fontWeight: 400 }}>
+        {"Designed & Built by Kailon Simon"}
+      </span>
     </div>
   );
 }
