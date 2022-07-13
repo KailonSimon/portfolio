@@ -1,50 +1,67 @@
+import { Link } from "react-scroll";
+import { BrandGithub, BrandLinkedin } from "tabler-icons-react";
 import MenuButton from "./MenuButton";
 
-const sidebar = {
-  opened: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
-    transition: {
-      type: "spring",
-      stiffness: 20,
-      restDelta: 2,
-    },
-  }),
-  closed: {
-    clipPath: "circle(30px at 40px 40px)",
-    transition: {
-      delay: 0.5,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
-    },
-  },
-};
+const links = [
+  { href: "hero", text: "Home" },
+  { href: "about", text: "About" },
+];
 
 function Navbar() {
   return (
-    <>
-      <nav className="navbar">
-        <div className="navbar-inner">
-          <h1 className="logo">Kailon Simon</h1>
-          <div id="nav-button-container">
-            <a href="#">Home</a>
-            <a href="#projects">Projects</a>
-            <a href="#about">About</a>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
-          </div>
+    <header>
+      <nav className="nav grid">
+        <div>
+          <a className="logo" href="#">
+            Kailon Simon
+          </a>
+        </div>
+        <div className="nav-menu" id="nav-menu">
+          <ul className="nav-list">
+            {links.map((link) => {
+              return (
+                <li className="nav-item" key={link.text}>
+                  <Link
+                    to={link.href}
+                    spy={true}
+                    smooth={true}
+                    offset={-75}
+                    duration={100}
+                    activeClass="active"
+                  >
+                    {link.text}
+                  </Link>
+                </li>
+              );
+            })}
+            <li className="nav-item">
+              <a href={"/resume.pdf"} target="_blank" rel="noopener noreferrer">
+                Resume
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="nav-socials">
+          <a
+            href="https://github.com/KailonSimon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <BrandGithub size={24} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kailon-simon-59b416230/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <BrandLinkedin size={24} />
+          </a>
+        </div>
+        <div className="nav-toggle">
+          <MenuButton />
         </div>
       </nav>
-      <nav className="mobile-navbar">
-        <div className="navbar-inner">
-          <h1 className="logo">KS</h1>
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <MenuButton />
-          </div>
-        </div>
-      </nav>
-    </>
+    </header>
   );
 }
 
