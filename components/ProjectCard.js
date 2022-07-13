@@ -3,7 +3,7 @@ import { BrandGithub } from "tabler-icons-react";
 import Button from "./Button";
 
 export default function ProjectCard({ project }) {
-  const { title, info, tags, repo, url, demo } = project;
+  const { title, info, tags, repo, url } = project;
 
   return (
     <div className="project-card">

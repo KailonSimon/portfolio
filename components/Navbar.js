@@ -1,4 +1,3 @@
-import { useState, useRef } from "react";
 import MenuButton from "./MenuButton";
 
 const sidebar = {
@@ -22,9 +21,6 @@ const sidebar = {
 };
 
 function Navbar() {
-  const [isOpen, toggleOpen] = useState(false);
-  const containerRef = useRef(null);
-
   return (
     <>
       <nav className="navbar">
@@ -34,8 +30,7 @@ function Navbar() {
             <a href="#">Home</a>
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
-            <a href="#footer">Contact</a>
-            <a href={"/resume.pdf"} target="_blank" rel="noopener noreferrer">
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </div>
