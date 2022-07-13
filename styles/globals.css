@@ -235,6 +235,7 @@ button:hover::after,
   padding: 4vh;
   margin-top: 4rem;
   color: var(--5);
+  z-index: 999;
 }
 
 @media screen and (min-width: 1024px) {
