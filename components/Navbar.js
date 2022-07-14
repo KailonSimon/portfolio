@@ -4,7 +4,7 @@ import NavLinks from "./NavLinks";
 import Socials from "./Socials";
 
 export default function Navbar() {
-  const [opened, setOpened] = useState(true);
+  const [opened, setOpened] = useState(false);
 
   return (
     <header>
