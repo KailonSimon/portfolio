@@ -5,7 +5,7 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <MantineProvider
-      theme={{ colorScheme: "dark" }}
+      theme={{ colorScheme: "dark", fontFamily: "Poppins" }}
       withGlobalStyle
       withNormalizeCss
     >
