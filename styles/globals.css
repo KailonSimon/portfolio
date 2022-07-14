@@ -1,26 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --1: #000;
+  --2: #383838;
+  --3: #99aab5;
+  --4: #ffffff;
+  --5: #7289da;
+  --nav-color: rgba(31, 31, 31, 0.8);
+  --nav-height: 4rem;
+  --footer-height: 128px;
+}
 
-@layer base {
-  :root {
-    --1: #000;
-    --2: #383838;
-    --3: #99aab5;
-    --4: #ffffff;
-    --5: #7289da;
-    --nav-color: rgba(31, 31, 31, 0.8);
-    --nav-height: 4rem;
-    --footer-height: 128px;
-  }
-
-  html {
-    font-family: "Poppins", system-ui, sans-serif;
-    scroll-behavior: smooth;
-    background-color: var(--1);
-    background-attachment: fixed;
-    animation: shift 240s linear infinite;
-  }
+html {
+  font-family: "Poppins", system-ui, sans-serif;
+  scroll-behavior: smooth;
+  background-color: var(--1);
+  background-attachment: fixed;
+  animation: shift 240s linear infinite;
 }
 
 @keyframes shift {
@@ -42,6 +36,7 @@ h4,
 h5,
 h6 {
   font-family: Staatliches, system-ui, sans-serif;
+  margin: 0;
 }
 
 html,
@@ -61,6 +56,12 @@ a {
 a:hover {
   color: rgba(255, 255, 255, 1);
   transition: all 0.3s;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 li > a[class~="active"] {
@@ -92,7 +93,7 @@ li > a::after {
 }
 
 .logo {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--4);
 }
 
@@ -152,18 +153,20 @@ li > a::after {
 }
 
 .footer {
-  background: var(--1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 2rem;
-  font-weight: 700;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 400;
   min-height: var(--footer-height);
-  border-top: 1px solid var(--2);
-  padding: 4vh;
+  background-color: rgba(56, 56, 56, 0.95);
+  border-top: 1px solid var(--5);
+  padding: 1rem;
   margin-top: 4rem;
-  color: var(--5);
+  color: var(--4);
   z-index: 998;
+  position: relative;
 }
 
 @media screen and (min-width: 1024px) {
@@ -180,6 +183,7 @@ header {
   left: 0;
   z-index: 999;
   background-color: rgba(56, 56, 56, 0.95);
+  border-bottom: 1px solid var(--5);
 }
 
 .nav {
@@ -276,11 +280,12 @@ header {
 
 .drawer-content {
   width: 100%;
-  height: 100%;
+  height: calc(100% - var(--nav-height) - 2rem);
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 3rem;
+  justify-content: center;
+  font-size: 5vh;
 }
 
 .menu-button {
@@ -295,13 +300,16 @@ header {
   color: transparent;
   margin-bottom: 1rem;
   text-align: center;
+  position: relative;
 }
 
 #projects {
+  min-height: 100vh;
   height: fit-content;
   width: 100%;
   max-width: 100vw;
-  padding: 0 3rem;
+  padding: 3rem;
+  position: relative;
 }
 
 .projects-container {
@@ -313,7 +321,7 @@ header {
 }
 
 .project-card {
-  background-color: var(--1);
+  background-color: var(--2);
   background-image: url("https://www.transparenttextures.com/patterns/rebel.png");
   border: 2px solid var(--2);
   border-radius: 8px;
@@ -375,11 +383,13 @@ header {
 }
 
 #about {
+  min-height: 100vh;
   height: fit-content;
   width: 100%;
   max-width: 100vw;
   padding: 0 3rem;
   margin-top: 2rem;
+  position: relative;
 }
 .about-card-container {
   display: flex;
@@ -423,4 +433,9 @@ header {
   }
   .about-card-container {
   }
+}
+
+.mantine-Badge-leftSection {
+  display: flex;
+  justify-content: center;
 }
