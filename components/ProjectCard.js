@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { BrandGithub } from "tabler-icons-react";
-import Button from "./Button";
+import { Button, Badge } from "@mantine/core";
 
 export default function ProjectCard({ project }) {
   const { title, info, tags, repo, url } = project;
@@ -8,32 +8,54 @@ export default function ProjectCard({ project }) {
   return (
     <div className="project-card">
       <div className="project-card-title">
-        <h2>{title}</h2>
+        <h2 style={{ textAlign: "center" }}>{title}</h2>
         <p>{info}</p>
       </div>
       <div className="project-card-footer">
         <div className="project-tags">
           {tags.map((tag) => {
             return (
-              <div className="project-tag" key={tag}>
-                <Image
-                  src={`/icons/${tag.toLowerCase()}.svg`}
-                  alt={tag}
-                  height={15}
-                  width={15}
-                />
+              <Badge
+                key={tag}
+                leftSection={
+                  <Image
+                    src={`/icons/${tag.toLowerCase()}.svg`}
+                    alt={tag}
+                    height={15}
+                    width={15}
+                  />
+                }
+                size="lg"
+                variant="filled"
+                color="gray"
+              >
                 {tag}
-              </div>
+              </Badge>
             );
           })}
         </div>
       </div>
 
       <div className="project-links">
-        <Button href={repo}>
+        <Button
+          component="a"
+          href={repo}
+          target="_blank"
+          variant="gradient"
+          gradient={{ from: "#99aab5", to: "#7289da", deg: 35 }}
+        >
           <BrandGithub />
         </Button>
-        <Button href={url}>Go to</Button>
+        <Button
+          component="a"
+          href={url}
+          target="_blank"
+          variant="gradient"
+          gradient={{ from: "#99aab5", to: "#7289da", deg: 35 }}
+          uppercase
+        >
+          Check it out
+        </Button>
       </div>
     </div>
   );
