@@ -1,5 +1,32 @@
+import { createStyles, Title, Text } from "@mantine/core";
 import React from "react";
 import ProjectCard from "../components/ProjectCard";
+
+const useStyles = createStyles((theme) => ({
+  content: {
+    minHeight: "100vh",
+    height: "fit-content",
+    width: "100%",
+    maxWidth: "100vw",
+    padding: "3rem",
+    marginTop: "2rem",
+    position: "relative",
+  },
+  title: {
+    fontSize: "3rem",
+    fontWeight: 700,
+    marginBottom: "1rem",
+    textAlign: "center",
+    position: "relative",
+  },
+  projectsContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: "2rem",
+  },
+}));
 
 const projects = [
   {
@@ -12,10 +39,19 @@ const projects = [
 ];
 
 export default function Projects() {
+  const { classes } = useStyles();
   return (
-    <section id="projects" className="content">
-      <h2 className="section-title">Projects</h2>
-      <div className="projects-container">
+    <section id="projects" className={classes.content}>
+      <Title
+        order={2}
+        component={Text}
+        className={classes.title}
+        variant="gradient"
+        gradient={{ from: "purple", to: "orange", deg: 45 }}
+      >
+        Projects
+      </Title>
+      <div className={classes.projectsContainer}>
         {projects.map((project) => {
           return <ProjectCard key={project.title} project={project} />;
         })}

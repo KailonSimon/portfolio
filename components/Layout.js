@@ -2,13 +2,25 @@ import React from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { ParticlesBackground } from "./Particles";
+import { createStyles } from "@mantine/core";
+
+const useStyles = createStyles((theme) => ({
+  contentWrapper: {
+    minHeight: "calc(100vh - 128px)",
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+}));
 
 export default function Layout({ children }) {
+  const { classes } = useStyles();
   return (
-    <div className="flex flex-col">
+    <div>
       <ParticlesBackground />
       <Navbar />
-      <main className="content-wrapper">{children}</main>
+      <main className={classes.contentWrapper}>{children}</main>
       <Footer />
     </div>
   );

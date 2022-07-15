@@ -1,6 +1,25 @@
 import React, { useEffect } from "react";
 import { Link } from "react-scroll";
-import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { createStyles } from "@mantine/core";
+
+const useStyles = createStyles((theme) => ({
+  navList: {
+    display: "flex",
+    [theme.fn.smallerThan("md")]: {
+      flexDirection: "column",
+      alignItems: "center",
+    },
+  },
+  navItem: {
+    marginBottom: "2rem",
+    cursor: "pointer",
+    [theme.fn.largerThan("md")]: {
+      marginLeft: "3rem",
+      marginBottom: 0,
+    },
+  },
+}));
 
 const links = [
   { href: "hero", text: "Home" },
@@ -25,23 +44,28 @@ const item = {
 };
 
 function NavLinks({ mobile, handleClick }) {
+  const { classes } = useStyles();
   const controls = useAnimation();
 
   useEffect(() => {
-    controls.start();
+    controls.start("show");
   }, [controls]);
 
   if (mobile) {
     return (
       <motion.ul
-        className="nav-list"
+        className={classes.navList}
         variants={list}
         initial="hidden"
         animate="show"
       >
         {links.map((link) => {
           return (
-            <motion.li className="nav-item" key={link.text} variants={item}>
+            <motion.li
+              className={classes.navItem}
+              key={link.text}
+              variants={item}
+            >
               <Link
                 to={link.href}
                 spy={true}
@@ -56,7 +80,7 @@ function NavLinks({ mobile, handleClick }) {
             </motion.li>
           );
         })}
-        <motion.li className="nav-item" variants={item}>
+        <motion.li className={classes.navItem} variants={item}>
           <a href={"/resume.pdf"} target="_blank" rel="noreferrer">
             Resume
           </a>
@@ -65,10 +89,10 @@ function NavLinks({ mobile, handleClick }) {
     );
   }
   return (
-    <ul className="nav-list">
+    <ul className={classes.navList}>
       {links.map((link) => {
         return (
-          <li className="nav-item" key={link.text}>
+          <li className={classes.navItem} key={link.text}>
             <Link
               to={link.href}
               spy={true}
@@ -76,14 +100,13 @@ function NavLinks({ mobile, handleClick }) {
               offset={-100}
               duration={250}
               activeClass="active"
-              //onSetActive={handleClick}
             >
               {link.text}
             </Link>
           </li>
         );
       })}
-      <li className="nav-item">
+      <li className={classes.navItem}>
         <a href={"/resume.pdf"} target="_blank" rel="noreferrer">
           Resume
         </a>
