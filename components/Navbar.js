@@ -39,7 +39,7 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     fontSize: "5vh",
     width: "100%",
-    height: "calc(100% - var(--nav-height) - 2rem)",
+    height: "100%",
   },
   logo: {
     color: theme.colorScheme === "dark" ? theme.white : theme.primaryColor,
@@ -52,6 +52,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   navToggle: {
+    display: "flex",
     [theme.fn.largerThan("md")]: {
       display: "none",
     },
@@ -62,6 +63,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   drawer: {
+    display: "flex",
     [theme.fn.largerThan("md")]: {
       display: "none",
     },
@@ -71,8 +73,6 @@ const useStyles = createStyles((theme) => ({
 export default function Navbar() {
   const { classes } = useStyles();
   const [opened, setOpened] = useState(false);
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const dark = colorScheme === "dark";
 
   return (
     <header className={classes.header}>
@@ -88,17 +88,8 @@ export default function Navbar() {
         <div className={classes.socials}>
           <Socials />
         </div>
-        <div style={{ display: "flex", gap: 8 }}>
-          {/*<ActionIcon
-            variant="filled"
-            color={dark ? "dark" : "blue"}
-            onClick={toggleColorScheme}
-            size="lg"
-          >
-            {dark ? <Sun size={18} /> : <MoonStars size={18} />}
-  </ActionIcon>*/}
+        <div className={classes.navToggle}>
           <Burger
-            className={classes.navToggle}
             opened={opened}
             onClick={() => setOpened(!opened)}
             size="sm"
@@ -111,7 +102,10 @@ export default function Navbar() {
         size="full"
         withOverlay={false}
         transition="slide-down"
-        styles={{ closeButton: { display: "none" } }}
+        styles={{
+          closeButton: { display: "none" },
+          header: { display: "none" },
+        }}
         classNames={{ drawer: classes.drawer }}
       >
         <div className={classes.drawerContent}>

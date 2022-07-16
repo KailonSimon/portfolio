@@ -6,18 +6,18 @@ import { createStyles } from "@mantine/core";
 const useStyles = createStyles((theme) => ({
   navList: {
     display: "flex",
+    gap: "3rem",
     [theme.fn.smallerThan("md")]: {
       flexDirection: "column",
       alignItems: "center",
+      justifyContent: "center",
+      gap: "5vh",
+      flex: 1,
+      marginTop: 64,
     },
   },
   navItem: {
-    marginBottom: "2rem",
     cursor: "pointer",
-    [theme.fn.largerThan("md")]: {
-      marginLeft: "3rem",
-      marginBottom: 0,
-    },
   },
 }));
 
