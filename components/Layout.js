@@ -18,11 +18,11 @@ const useStyles = createStyles((theme) => ({
 export default function Layout({ children }) {
   const { classes } = useStyles();
   return (
-    <div>
+    <>
       <ParticlesBackground />
       <Navbar />
       <main className={classes.contentWrapper}>{children}</main>
       <Footer />
-    </div>
+    </>
   );
 }
