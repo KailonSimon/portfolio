@@ -7,7 +7,6 @@ const useStyles = createStyles((theme) => ({
     height: "100%",
     minHeight: "100vh",
     maxWidth: 1280,
-    padding: "0 3rem",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

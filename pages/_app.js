@@ -1,4 +1,5 @@
 import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
+import { NotificationsProvider } from "@mantine/notifications";
 import { useState } from "react";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
@@ -19,9 +20,11 @@ function MyApp({ Component, pageProps }) {
         withGlobalStyle
         withNormalizeCss
       >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <NotificationsProvider zIndex={999}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </NotificationsProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   );

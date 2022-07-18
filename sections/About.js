@@ -4,11 +4,9 @@ import { createStyles, Title, Text } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   content: {
-    minHeight: "100vh",
     height: "fit-content",
     width: "100%",
     maxWidth: "100vw",
-    padding: "3rem",
     marginTop: "2rem",
     position: "relative",
   },

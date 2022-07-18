@@ -90,6 +90,7 @@ export default function ProjectCard({ project }) {
           target="_blank"
           variant="gradient"
           gradient={{ from: "purple", to: "orange", deg: 45 }}
+          radius="lg"
         >
           <BrandGithub />
         </Button>
@@ -100,6 +101,7 @@ export default function ProjectCard({ project }) {
           variant="gradient"
           gradient={{ from: "purple", to: "orange", deg: 45 }}
           uppercase
+          radius="lg"
         >
           Check it out
         </Button>

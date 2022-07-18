@@ -2,6 +2,8 @@ import Head from "next/head";
 import Projects from "../sections/Projects";
 import Hero from "../sections/Hero";
 import About from "../sections/About";
+import ContactForm from "../components/ContactForm";
+import Contact from "../sections/Contact";
 
 export default function Home() {
   return (
@@ -12,6 +14,7 @@ export default function Home() {
       <Hero />
       <About />
       <Projects />
+      <Contact />
     </>
   );
 }
