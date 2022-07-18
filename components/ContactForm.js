@@ -75,6 +75,15 @@ export default function ContactForm() {
             autoClose: 5000,
             color: "green",
             icon: <Check />,
+            styles: (theme) => ({
+              root: {
+                backgroundColor: theme.colors.dark[3],
+                backgroundImage:
+                  "url('https://www.transparenttextures.com/patterns/rebel.png')",
+                borderRadius: 8,
+                border: `2px solid ${theme.colors.dark[3]}`,
+              },
+            }),
           });
           console.log(result.text);
         },
