@@ -1,4 +1,3 @@
-import React from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { ParticlesBackground } from "./Particles";
@@ -15,12 +14,14 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function Layout({ children }) {
+export default function Layout({ children, ...pageProps }) {
   const { classes } = useStyles();
+  const { resumeURL } = pageProps;
+
   return (
     <>
       <ParticlesBackground />
-      <Navbar />
+      <Navbar resumeURL={resumeURL} />
       <main className={classes.contentWrapper}>{children}</main>
       <Footer />
     </>

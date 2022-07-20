@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import { createStyles, Text, Title } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
@@ -38,12 +37,13 @@ const useStyles = createStyles((theme) => ({
     fontSize: "1.25rem",
     padding: "1rem",
     gap: "1rem",
-    minHeight: 300,
+    minHeight: 320,
   },
 }));
 
 function AboutCard({ title, skills }) {
   const { classes } = useStyles();
+
   return (
     <div className={classes.aboutCard}>
       <Title order={3} className={classes.aboutCardTitle}>
@@ -52,19 +52,19 @@ function AboutCard({ title, skills }) {
       <div className={classes.aboutCardContent}>
         {skills.map((skill) => (
           <div
-            key={skill}
+            key={skill.id}
             style={{
               display: "flex",
               alignItems: "center",
               gap: 8,
             }}
           >
-            <Text size="xl" weight={500}>
-              {skill}
+            <Text size="md" weight={500}>
+              {skill.attributes.name}
             </Text>
             <Image
-              src={`/icons/${skill.toLowerCase()}.svg`}
-              alt={skill}
+              src={skill.attributes.image.data.attributes.url}
+              alt={skill.attributes.image.data.attributes.alternativeText}
               height={25}
               width={25}
             />

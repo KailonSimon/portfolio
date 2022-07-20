@@ -1,4 +1,3 @@
-import React from "react";
 import AboutCard from "../components/AboutCard";
 import { createStyles, Title, Text } from "@mantine/core";
 
@@ -27,12 +26,9 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const languages = ["JavaScript", "TypeScript", "CSS", "HTML", "Java", "Kotlin"];
-const technologies = ["React", "Next.js", "Redux", "Android", "Node", "Git"];
-const other = ["Tailwind", "Bootstrap", "Blender", "Firebase"];
-
-function About() {
+function About({ languages, technologies, other }) {
   const { classes } = useStyles();
+
   return (
     <section id="about" className={classes.content}>
       <Title

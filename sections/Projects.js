@@ -1,5 +1,4 @@
 import { createStyles, Title, Text } from "@mantine/core";
-import React from "react";
 import ProjectCard from "../components/ProjectCard";
 
 const useStyles = createStyles((theme) => ({
@@ -26,17 +25,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const projects = [
-  {
-    title: "Trivia Quiz Game",
-    info: "A full stack trivia game using the Open Trivia Database API",
-    tags: ["TypeScript", "React", "Next.js", "Prisma", "Redux"],
-    repo: "https://github.com/KailonSimon/trivia-q",
-    url: "https://trivia-q.vercel.app/",
-  },
-];
-
-export default function Projects() {
+export default function Projects({ projects }) {
   const { classes } = useStyles();
   return (
     <section id="projects" className={classes.content}>
@@ -49,11 +38,15 @@ export default function Projects() {
       >
         Projects
       </Title>
-      <div className={classes.projectsContainer}>
-        {projects.map((project) => {
-          return <ProjectCard key={project.title} project={project} />;
-        })}
-      </div>
+      {projects ? (
+        <div className={classes.projectsContainer}>
+          {projects.map((project) => {
+            return (
+              <ProjectCard key={project.id} project={project.attributes} />
+            );
+          })}
+        </div>
+      ) : null}
     </section>
   );
 }

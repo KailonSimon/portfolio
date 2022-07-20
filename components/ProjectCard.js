@@ -43,28 +43,29 @@ const useStyles = createStyles((theme) => ({
 
 export default function ProjectCard({ project }) {
   const { classes } = useStyles();
-  const { title, info, tags, repo, url } = project;
+  const { name, description, demoURL, githubURL, tech_badges } = project;
 
   return (
     <div className={classes.projectCard}>
       <div className={classes.projectCardTitle}>
         <Title order={3} align="center" style={{ letterSpacing: 1 }}>
-          {title}
+          {name}
         </Title>
         <Text my={8} weight={500}>
-          {info}
+          {description}
         </Text>
       </div>
       <div>
         <div className={classes.tags}>
-          {tags.map((tag) => {
+          {tech_badges.data.map((tag) => {
+            const { name, image } = tag.attributes;
             return (
               <Badge
-                key={tag}
+                key={tag.id}
                 leftSection={
                   <Image
-                    src={`/icons/${tag.toLowerCase()}.svg`}
-                    alt={tag}
+                    src={image.data.attributes.url}
+                    alt={image.data.attributes.alternativeText}
                     height={15}
                     width={15}
                   />
@@ -76,7 +77,7 @@ export default function ProjectCard({ project }) {
                   leftSection: classes.badgeLeftSection,
                 }}
               >
-                {tag}
+                {name}
               </Badge>
             );
           })}
@@ -86,7 +87,7 @@ export default function ProjectCard({ project }) {
       <div className={classes.links}>
         <Button
           component="a"
-          href={repo}
+          href={githubURL}
           target="_blank"
           variant="gradient"
           gradient={{ from: "purple", to: "orange", deg: 45 }}
@@ -96,7 +97,7 @@ export default function ProjectCard({ project }) {
         </Button>
         <Button
           component="a"
-          href={url}
+          href={demoURL}
           target="_blank"
           variant="gradient"
           gradient={{ from: "purple", to: "orange", deg: 45 }}

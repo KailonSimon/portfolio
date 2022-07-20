@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
         withNormalizeCss
       >
         <NotificationsProvider zIndex={999}>
-          <Layout>
+          <Layout {...pageProps}>
             <Component {...pageProps} />
           </Layout>
         </NotificationsProvider>

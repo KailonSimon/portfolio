@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-scroll";
 import { motion, useAnimation } from "framer-motion";
 import { createStyles } from "@mantine/core";
@@ -44,7 +44,7 @@ const item = {
   show: { opacity: 1, x: 0 },
 };
 
-function NavLinks({ mobile, handleClick }) {
+function NavLinks({ mobile, handleClick, resumeURL }) {
   const { classes } = useStyles();
   const controls = useAnimation();
 
@@ -82,7 +82,7 @@ function NavLinks({ mobile, handleClick }) {
           );
         })}
         <motion.li className={classes.navItem} variants={item}>
-          <a href={"/resume.pdf"} target="_blank" rel="noreferrer">
+          <a href={resumeURL} target="_blank" rel="noreferrer">
             Resume
           </a>
         </motion.li>
@@ -108,7 +108,7 @@ function NavLinks({ mobile, handleClick }) {
         );
       })}
       <li className={classes.navItem}>
-        <a href={"/resume.pdf"} target="_blank" rel="noreferrer">
+        <a href={resumeURL} target="_blank" rel="noreferrer">
           Resume
         </a>
       </li>

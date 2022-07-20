@@ -1,12 +1,5 @@
-import {
-  Drawer,
-  Burger,
-  useMantineColorScheme,
-  ActionIcon,
-  createStyles,
-} from "@mantine/core";
+import { Drawer, Burger, createStyles } from "@mantine/core";
 import { useState } from "react";
-import { MoonStars, Sun } from "tabler-icons-react";
 import NavLinks from "./NavLinks";
 import Socials from "./Socials";
 
@@ -70,7 +63,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar({ resumeURL }) {
   const { classes } = useStyles();
   const [opened, setOpened] = useState(false);
 
@@ -83,7 +76,11 @@ export default function Navbar() {
           </a>
         </div>
         <div className={classes.menu} id="nav-menu">
-          <NavLinks mobile={false} handleClick={() => setOpened(!opened)} />
+          <NavLinks
+            mobile={false}
+            handleClick={() => setOpened(!opened)}
+            resumeURL={resumeURL}
+          />
         </div>
         <div className={classes.socials}>
           <Socials />
@@ -109,7 +106,11 @@ export default function Navbar() {
         classNames={{ drawer: classes.drawer }}
       >
         <div className={classes.drawerContent}>
-          <NavLinks mobile={true} handleClick={() => setOpened(!opened)} />
+          <NavLinks
+            mobile={true}
+            handleClick={() => setOpened(!opened)}
+            resumeURL={resumeURL}
+          />
           <Socials />
         </div>
       </Drawer>
