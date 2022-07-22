@@ -4,12 +4,15 @@ import { useState } from "react";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 import { darkTheme, lightTheme } from "../theme";
+import ReactGA from "react-ga";
+ReactGA.initialize(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
 
 function MyApp({ Component, pageProps }) {
   const [colorScheme, setColorScheme] = useState("dark");
   const toggleColorScheme = () => {
     setColorScheme(colorScheme === "dark" ? "light" : "dark");
   };
+
   return (
     <ColorSchemeProvider
       colorScheme={colorScheme}
