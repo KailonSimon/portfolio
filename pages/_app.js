@@ -4,33 +4,37 @@ import { useState } from "react";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 import { darkTheme, lightTheme } from "../theme";
-import ReactGA from "react-ga";
-ReactGA.initialize(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
-ReactGA.pageview(window.location.pathname + window.location.search);
+import { GoogleAnalytics, usePageViews } from "nextjs-google-analytics";
 
 function MyApp({ Component, pageProps }) {
+  usePageViews();
   const [colorScheme, setColorScheme] = useState("dark");
   const toggleColorScheme = () => {
     setColorScheme(colorScheme === "dark" ? "light" : "dark");
   };
 
   return (
-    <ColorSchemeProvider
-      colorScheme={colorScheme}
-      toggleColorScheme={toggleColorScheme}
-    >
-      <MantineProvider
-        theme={colorScheme === "dark" ? darkTheme : lightTheme}
-        withGlobalStyle
-        withNormalizeCss
+    <>
+      <GoogleAnalytics
+        gaMeasurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
+      />
+      <ColorSchemeProvider
+        colorScheme={colorScheme}
+        toggleColorScheme={toggleColorScheme}
       >
-        <NotificationsProvider zIndex={999}>
-          <Layout {...pageProps}>
-            <Component {...pageProps} />
-          </Layout>
-        </NotificationsProvider>
-      </MantineProvider>
-    </ColorSchemeProvider>
+        <MantineProvider
+          theme={colorScheme === "dark" ? darkTheme : lightTheme}
+          withGlobalStyle
+          withNormalizeCss
+        >
+          <NotificationsProvider zIndex={999}>
+            <Layout {...pageProps}>
+              <Component {...pageProps} />
+            </Layout>
+          </NotificationsProvider>
+        </MantineProvider>
+      </ColorSchemeProvider>
+    </>
   );
 }
 
