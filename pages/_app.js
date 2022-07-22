@@ -6,6 +6,7 @@ import "../styles/globals.css";
 import { darkTheme, lightTheme } from "../theme";
 import ReactGA from "react-ga";
 ReactGA.initialize(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 function MyApp({ Component, pageProps }) {
   const [colorScheme, setColorScheme] = useState("dark");
