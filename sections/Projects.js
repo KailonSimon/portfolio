@@ -1,5 +1,6 @@
 import { createStyles, Title, Text } from "@mantine/core";
 import ProjectCard from "../components/ProjectCard";
+import { Carousel } from "@mantine/carousel";
 
 const useStyles = createStyles((theme) => ({
   content: {
@@ -12,7 +13,7 @@ const useStyles = createStyles((theme) => ({
   title: {
     fontSize: "3rem",
     fontWeight: 700,
-    marginBottom: "1rem",
+    marginBottom: "0.5rem",
     textAlign: "center",
     position: "relative",
   },
@@ -21,7 +22,10 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
-    gap: "2rem",
+  },
+  carouselIndicators: {
+    position: "relative",
+    marginTop: 24,
   },
 }));
 
@@ -40,11 +44,25 @@ export default function Projects({ projects }) {
       </Title>
       {projects ? (
         <div className={classes.projectsContainer}>
-          {projects.map((project) => {
-            return (
-              <ProjectCard key={project.id} project={project.attributes} />
-            );
-          })}
+          <Carousel
+            slideSize="33.33%"
+            withControls={false}
+            slideGap="md"
+            breakpoints={[
+              { maxWidth: "md", slideSize: "50%" },
+              { maxWidth: "sm", slideSize: "100%", slideGap: 0 },
+            ]}
+            withIndicators
+            classNames={{ indicators: classes.carouselIndicators }}
+          >
+            {projects.map((project) => {
+              return (
+                <Carousel.Slide key={project.id}>
+                  <ProjectCard project={project.attributes} />
+                </Carousel.Slide>
+              );
+            })}
+          </Carousel>
         </div>
       ) : null}
     </section>

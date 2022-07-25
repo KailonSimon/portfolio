@@ -4,8 +4,12 @@ import { createStyles, Button, Badge, Title, Text } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   projectCard: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
     position: "relative",
-    minWidth: "20rem",
+    width: "100%",
+    height: "24rem",
     borderRadius: 8,
     backgroundImage:
       theme.colorScheme === "dark"
@@ -16,6 +20,7 @@ const useStyles = createStyles((theme) => ({
     border: `2px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
     }`,
+    textAlign: "center",
   },
   projectCardTitle: {
     padding: "1rem",
@@ -34,6 +39,14 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     gap: "0.5rem",
     padding: "1rem",
+  },
+  badge: {
+    [theme.fn.smallerThan("md")]: {
+      fontSize: 11,
+      height: 20,
+      lineHeight: "18px",
+      padding: "0 10px",
+    },
   },
   badgeLeftSection: {
     display: "flex",
@@ -74,6 +87,7 @@ export default function ProjectCard({ project }) {
                 variant="filled"
                 style={{ background: "gray" }}
                 classNames={{
+                  root: classes.badge,
                   leftSection: classes.badgeLeftSection,
                 }}
               >
