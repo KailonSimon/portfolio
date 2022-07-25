@@ -41,7 +41,6 @@ const useStyles = createStyles((theme) => ({
   menu: {
     [theme.fn.smallerThan("md")]: {
       display: "none",
-      border: "1px solid red",
     },
   },
   navToggle: {

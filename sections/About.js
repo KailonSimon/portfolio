@@ -3,6 +3,9 @@ import { createStyles, Title, Text } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   content: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     height: "fit-content",
     width: "100%",
     maxWidth: "100vw",
@@ -13,7 +16,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: "3rem",
     fontWeight: 700,
     color: theme.colorScheme === "dark" ? theme.colors.blue[3] : theme.white,
-    marginBottom: "1rem",
+    marginBottom: "0.5rem",
     textAlign: "center",
     position: "relative",
   },
@@ -22,7 +25,9 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
-    gap: "2rem",
+    gap: "1rem",
+    width: "100%",
+    maxWidth: "75rem",
   },
 }));
 

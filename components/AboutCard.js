@@ -15,6 +15,9 @@ const useStyles = createStyles((theme) => ({
     border: `2px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
     }`,
+    [theme.fn.smallerThan("md")]: {
+      minWidth: "15rem",
+    },
   },
   aboutCardTitle: {
     borderTopLeftRadius: 8,
@@ -22,8 +25,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 700,
     width: "100%",
     textAlign: "center",
-    fontSize: "1.5rem",
-    padding: "0.5rem 2rem",
+    padding: "0.5rem",
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.white,
     color: theme.colorScheme === "dark" ? theme.white : theme.colors.blue[3],
@@ -34,10 +36,13 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    fontSize: "1.25rem",
-    padding: "1rem",
-    gap: "1rem",
-    minHeight: 320,
+    fontSize: "1rem",
+    padding: "1rem 0.5rem",
+    gap: ".75rem",
+    minHeight: "18rem",
+    [theme.fn.smallerThan("sm")]: {
+      minHeight: "min-content",
+    },
   },
 }));
 
@@ -59,9 +64,7 @@ function AboutCard({ title, skills }) {
               gap: 8,
             }}
           >
-            <Text size="md" weight={500}>
-              {skill.attributes.name}
-            </Text>
+            <Text weight={500}>{skill.attributes.name}</Text>
             <Image
               src={skill.attributes.image.data.attributes.url}
               alt={skill.attributes.image.data.attributes.alternativeText}

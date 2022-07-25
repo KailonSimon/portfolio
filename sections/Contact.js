@@ -17,7 +17,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: "3rem",
     fontWeight: 700,
     color: theme.colorScheme === "dark" ? theme.colors.blue[3] : theme.white,
-    marginBottom: "1rem",
+    marginBottom: "0.5rem",
     textAlign: "center",
     position: "relative",
   },
