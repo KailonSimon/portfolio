@@ -1,6 +1,6 @@
 import { createStyles, Title, Text } from "@mantine/core";
 import ProjectCard from "../components/ProjectCard";
-import { Carousel } from "@mantine/carousel";
+import useEmblaCarousel from "embla-carousel-react";
 
 const useStyles = createStyles((theme) => ({
   content: {
@@ -31,6 +31,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function Projects({ projects }) {
   const { classes } = useStyles();
+  const [emblaRef] = useEmblaCarousel();
   return (
     <section id="projects" className={classes.content}>
       <Title
@@ -44,25 +45,17 @@ export default function Projects({ projects }) {
       </Title>
       {projects ? (
         <div className={classes.projectsContainer}>
-          <Carousel
-            slideSize="33.33%"
-            withControls={false}
-            slideGap="md"
-            breakpoints={[
-              { maxWidth: "md", slideSize: "50%" },
-              { maxWidth: "sm", slideSize: "100%", slideGap: 0 },
-            ]}
-            withIndicators
-            classNames={{ indicators: classes.carouselIndicators }}
-          >
-            {projects.map((project) => {
-              return (
-                <Carousel.Slide key={project.id}>
-                  <ProjectCard project={project.attributes} />
-                </Carousel.Slide>
-              );
-            })}
-          </Carousel>
+          <div className="embla" ref={emblaRef}>
+            <div className="embla__container">
+              {projects.map((project) => {
+                return (
+                  <div className="embla__slide" key={project.id}>
+                    <ProjectCard project={project.attributes} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       ) : null}
     </section>

@@ -88,3 +88,16 @@ li > a::after {
 * {
   box-sizing: border-box;
 }
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  gap: 1rem;
+}
+.embla__slide {
+  position: relative;
+  flex: 0 0 auto;
+  max-width: 100%;
+}
