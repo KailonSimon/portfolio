@@ -17,7 +17,7 @@
     "@mantine/next": "latest",
     "@mantine/notifications": "latest",
     "@uiball/loaders": "^1.2.6",
-    "embla-carousel-react": "^7.0.0-rc05",
+    "embla-carousel-react": "^6.2.0",
     "framer-motion": "^6.5.1",
     "next": "12.1.6",
     "nextjs-google-analytics": "^1.2.1",
