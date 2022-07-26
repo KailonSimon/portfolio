@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react";
 import { createStyles, Title, Text } from "@mantine/core";
 import ProjectCard from "../components/ProjectCard";
 import useEmblaCarousel from "embla-carousel-react";
@@ -31,7 +32,20 @@ const useStyles = createStyles((theme) => ({
 
 export default function Projects({ projects }) {
   const { classes } = useStyles();
-  const [emblaRef] = useEmblaCarousel();
+  const [emblaRef, embla] = useEmblaCarousel();
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const onScroll = useCallback(() => {
+    if (!embla) return;
+    const progress = Math.max(0, Math.min(1, embla.scrollProgress()));
+    setScrollProgress(progress * 100);
+  }, [embla, setScrollProgress]);
+
+  useEffect(() => {
+    if (!embla) return;
+    onScroll();
+    embla.on("scroll", onScroll);
+  }, [embla, onScroll]);
+
   return (
     <section id="projects" className={classes.content}>
       <Title
@@ -54,6 +68,12 @@ export default function Projects({ projects }) {
                   </div>
                 );
               })}
+            </div>
+            <div className="embla__progress">
+              <div
+                className="embla__progress__bar"
+                style={{ transform: `translateX(${scrollProgress}%)` }}
+              />
             </div>
           </div>
         </div>
