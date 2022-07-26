@@ -60,7 +60,7 @@ export const ParticlesBackground = () => {
             direction: "left",
             enable: true,
             straight: true,
-            speed: 0.5,
+            speed: 0.1,
           },
           number: {
             density: {
@@ -74,8 +74,8 @@ export const ParticlesBackground = () => {
             random: true,
             anim: {
               enable: true,
-              speed: 1,
-              opacity_min: 0.25,
+              speed: 0.25,
+              opacity_min: 0,
               sync: false,
             },
           },
@@ -97,7 +97,7 @@ export const ParticlesBackground = () => {
             random: true,
             anim: {
               enable: true,
-              speed: 4,
+              speed: 0.25,
               size_min: 1,
               sync: false,
             },

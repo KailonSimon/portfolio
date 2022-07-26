@@ -8,7 +8,7 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
     height: "fit-content",
     width: "100%",
-    maxWidth: "100vw",
+    maxWidth: 1280,
     marginTop: "2rem",
     position: "relative",
   },

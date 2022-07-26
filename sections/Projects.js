@@ -1,13 +1,14 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { createStyles, Title, Text } from "@mantine/core";
 import ProjectCard from "../components/ProjectCard";
 import useEmblaCarousel from "embla-carousel-react";
+import AutoHeight from "embla-carousel-auto-height";
 
 const useStyles = createStyles((theme) => ({
   content: {
     height: "fit-content",
     width: "100%",
-    maxWidth: "100vw",
+    maxWidth: 1280,
     marginTop: "2rem",
     position: "relative",
   },
@@ -17,12 +18,6 @@ const useStyles = createStyles((theme) => ({
     marginBottom: "0.5rem",
     textAlign: "center",
     position: "relative",
-  },
-  projectsContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexWrap: "wrap",
   },
   carouselIndicators: {
     position: "relative",
@@ -34,6 +29,7 @@ export default function Projects({ projects }) {
   const { classes } = useStyles();
   const [emblaRef, embla] = useEmblaCarousel();
   const [scrollProgress, setScrollProgress] = useState(0);
+
   const onScroll = useCallback(() => {
     if (!embla) return;
     const progress = Math.max(0, Math.min(1, embla.scrollProgress()));
@@ -58,23 +54,21 @@ export default function Projects({ projects }) {
         Projects
       </Title>
       {projects ? (
-        <div className={classes.projectsContainer}>
-          <div className="embla" ref={emblaRef}>
-            <div className="embla__container">
-              {projects.map((project) => {
-                return (
-                  <div className="embla__slide" key={project.id}>
-                    <ProjectCard project={project.attributes} />
-                  </div>
-                );
-              })}
-            </div>
-            <div className="embla__progress">
-              <div
-                className="embla__progress__bar"
-                style={{ transform: `translateX(${scrollProgress}%)` }}
-              />
-            </div>
+        <div className="embla" ref={emblaRef}>
+          <div className="embla__container">
+            {projects.map((project) => {
+              return (
+                <div className="embla__slide" key={project.id}>
+                  <ProjectCard project={project.attributes} />
+                </div>
+              );
+            })}
+          </div>
+          <div className="embla__progress">
+            <div
+              className="embla__progress__bar"
+              style={{ transform: `translateX(${scrollProgress}%)` }}
+            />
           </div>
         </div>
       ) : null}
