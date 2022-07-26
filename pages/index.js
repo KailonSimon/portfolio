@@ -4,13 +4,7 @@ import Hero from "../sections/Hero";
 import About from "../sections/About";
 import Contact from "../sections/Contact";
 
-export default function Home({
-  projects,
-  languages,
-  technologies,
-  skills,
-  resumeURL,
-}) {
+export default function Home({ projects, languages, technologies, skills }) {
   return (
     <>
       <Head>
@@ -28,7 +22,7 @@ export async function getStaticProps() {
   const [projectsRes, languagesRes, technologiesRes, skillsRes, resumeRes] =
     await Promise.all([
       fetch(
-        `${process.env.CONTENT_URL}/api/projects?populate[tech_badges][populate][0]=image`
+        `${process.env.CONTENT_URL}/api/projects?populate[0]=thumbnail&populate[1]=tech_badges.image`
       ),
       fetch(`${process.env.CONTENT_URL}/api/languages?populate=image`),
       fetch(`${process.env.CONTENT_URL}/api/technologies?populate=image`),

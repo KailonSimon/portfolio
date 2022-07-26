@@ -21,12 +21,8 @@ const useStyles = createStyles((theme) => ({
   form: {
     borderRadius: 8,
     width: "100%",
-    backgroundImage:
-      theme.colorScheme === "dark"
-        ? "url('https://www.transparenttextures.com/patterns/rebel.png')"
-        : null,
     backgroundColor:
-      theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.white,
+      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
     border: `2px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
     }`,
@@ -77,9 +73,7 @@ export default function ContactForm() {
             icon: <Check />,
             styles: (theme) => ({
               root: {
-                backgroundColor: theme.colors.dark[3],
-                backgroundImage:
-                  "url('https://www.transparenttextures.com/patterns/rebel.png')",
+                backgroundColor: theme.colors.dark[7],
                 borderRadius: 8,
                 border: `2px solid ${theme.colors.dark[3]}`,
               },

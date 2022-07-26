@@ -1,6 +1,8 @@
-import Image from "next/image";
 import { BrandGithub } from "tabler-icons-react";
 import { createStyles, Button, Badge, Title, Text } from "@mantine/core";
+import TechBadge from "./TechBadge";
+import { useEffect } from "react";
+import Image from "next/image";
 
 const useStyles = createStyles((theme) => ({
   projectCard: {
@@ -9,17 +11,8 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "space-between",
     position: "relative",
     width: "100%",
-    height: "24rem",
+    height: "28rem",
     borderRadius: 8,
-    backgroundImage:
-      theme.colorScheme === "dark"
-        ? "url('https://www.transparenttextures.com/patterns/rebel.png')"
-        : null,
-    backgroundColor:
-      theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.white,
-    border: `2px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
-    }`,
     textAlign: "center",
   },
   projectCardTitle: {
@@ -31,8 +24,13 @@ const useStyles = createStyles((theme) => ({
     flexWrap: "wrap",
     gap: "0.5rem",
     padding: "0 1rem",
-    marginBottom: "0.5rem",
     justifyContent: "center",
+  },
+  imageWrapper: {
+    height: "200px",
+    maxWidth: "100%",
+    aspectRatio: "16/9",
+    position: "relative",
   },
   links: {
     display: "flex",
@@ -60,42 +58,48 @@ export default function ProjectCard({ project }) {
 
   return (
     <div className={classes.projectCard}>
-      <div className={classes.projectCardTitle}>
-        <Title order={3} align="center" style={{ letterSpacing: 1 }}>
+      <div>
+        <Title
+          order={3}
+          align="center"
+          style={{ letterSpacing: 1, marginBottom: 8 }}
+        >
           {name}
         </Title>
-        <Text my={8} weight={500}>
-          {description}
-        </Text>
-      </div>
-      <div>
         <div className={classes.tags}>
           {tech_badges.data.map((tag) => {
             const { name, image } = tag.attributes;
             return (
-              <Badge
+              <TechBadge
+                name={name}
+                image={image.data.attributes.url}
+                imageAlt={image.data.attributes.alternativeText}
                 key={tag.id}
-                leftSection={
-                  <Image
-                    src={image.data.attributes.url}
-                    alt={image.data.attributes.alternativeText}
-                    height={15}
-                    width={15}
-                  />
-                }
-                size="lg"
-                variant="filled"
-                style={{ background: "gray" }}
-                classNames={{
-                  root: classes.badge,
-                  leftSection: classes.badgeLeftSection,
-                }}
-              >
-                {name}
-              </Badge>
+              />
             );
           })}
         </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <div className={classes.imageWrapper}>
+          <Image
+            src={project.thumbnail.data.attributes.url}
+            alt={project.thumbnail.data.attributes.alternativeText}
+            width={160}
+            height={90}
+            layout="fill"
+          />
+        </div>
+        <Text my={8} weight={500}>
+          {description}
+        </Text>
       </div>
 
       <div className={classes.links}>

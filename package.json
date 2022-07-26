@@ -17,6 +17,7 @@
     "@mantine/next": "^5.0.0",
     "@mantine/notifications": "^5.0.0",
     "@uiball/loaders": "^1.2.6",
+    "embla-carousel-auto-height": "^7.0.0-rc05",
     "embla-carousel-react": "^7.0.0-rc05",
     "framer-motion": "^6.5.1",
     "next": "12.2.3",

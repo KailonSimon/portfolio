@@ -6,12 +6,8 @@ const useStyles = createStyles((theme) => ({
     position: "relative",
     minWidth: "20rem",
     borderRadius: 8,
-    backgroundImage:
-      theme.colorScheme === "dark"
-        ? "url('https://www.transparenttextures.com/patterns/rebel.png')"
-        : null,
     backgroundColor:
-      theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.white,
+      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
     border: `2px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
     }`,

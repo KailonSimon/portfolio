@@ -88,6 +88,32 @@ li > a::after {
 * {
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  padding-top: 40px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid black;
+  background: black;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  height: 30px;
+  width: 8px;
+  border: 1px solid black;
+  background: rgb(111, 111, 111);
+  -webkit-box-shadow: 0 1px 1px rgb(0, 0, 0);
+  background: linear-gradient(to bottom, #290099, #d92b00);
+}
+
+::-webkit-scrollbar-track-piece {
+  height: 30px;
+  width: 30px;
+}
 
 .embla {
   overflow: hidden;
@@ -98,13 +124,13 @@ li > a::after {
 }
 .embla__slide {
   position: relative;
-  flex: 0 0 auto;
+  flex: 0 0 500px;
   max-width: 100%;
 }
 .embla__progress {
   position: relative;
   background-color: #5c5f66;
-  margin-top: 20px;
+  margin-top: 12px;
   max-width: 270px;
   width: calc(100% - 40px);
   height: 4px;
