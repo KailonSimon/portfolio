@@ -1,6 +1,5 @@
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import { ParticlesBackground } from "./Particles";
 import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
@@ -20,7 +19,6 @@ export default function Layout({ children, ...pageProps }) {
 
   return (
     <>
-      <ParticlesBackground />
       <Navbar resumeURL={resumeURL} />
       <main className={classes.contentWrapper}>{children}</main>
       <Footer />

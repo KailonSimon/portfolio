@@ -92,8 +92,6 @@ export default function ProjectCard({ project }) {
           <Image
             src={project.thumbnail.data.attributes.url}
             alt={project.thumbnail.data.attributes.alternativeText}
-            width={160}
-            height={90}
             layout="fill"
           />
         </div>
