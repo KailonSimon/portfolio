@@ -4,13 +4,19 @@ import Hero from "../sections/Hero";
 import About from "../sections/About";
 import Contact from "../sections/Contact";
 
-export default function Home({ projects, languages, technologies, skills }) {
+export default function Home({
+  projects,
+  languages,
+  technologies,
+  skills,
+  resumeURL,
+}) {
   return (
     <>
       <Head>
         <title>Kailon Simon | Developer</title>
       </Head>
-      <Hero />
+      <Hero resumeURL={resumeURL} />
       <About languages={languages} technologies={technologies} other={skills} />
       <Projects projects={projects} />
       <Contact />

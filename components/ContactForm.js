@@ -101,21 +101,21 @@ export default function ContactForm() {
           label="Name"
           placeholder="Name"
           {...form.getInputProps("name")}
-          radius="sm"
+          radius="xs"
           classNames={{ label: classes.label }}
         />
         <TextInput
           label="Email"
           placeholder="your@email.com"
           {...form.getInputProps("email")}
-          radius="sm"
+          radius="xs"
           classNames={{ label: classes.label }}
         />
         <Textarea
           label="Message"
           placeholder="Message"
           {...form.getInputProps("message")}
-          radius="sm"
+          radius="xs"
           classNames={{ label: classes.label }}
         />
         <Button
@@ -124,7 +124,7 @@ export default function ContactForm() {
           gradient={{ from: "purple", to: "orange", deg: 45 }}
           uppercase
           style={{ alignSelf: "flex-end", width: "40%", minWidth: 100 }}
-          radius="lg"
+          radius="xs"
           type="submit"
           disabled={isLoading}
         >

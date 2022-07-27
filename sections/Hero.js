@@ -1,4 +1,4 @@
-import { createStyles, Text, Title } from "@mantine/core";
+import { createStyles, Text, Title, Button } from "@mantine/core";
 import { motion } from "framer-motion";
 
 const useStyles = createStyles((theme) => ({
@@ -26,7 +26,7 @@ const variants = {
   hidden: { opacity: 0, y: "-25vh" },
 };
 
-function Hero() {
+function Hero({ resumeURL }) {
   const { classes } = useStyles();
   return (
     <section id="hero" className={classes.content}>
@@ -49,6 +49,36 @@ function Hero() {
           </Text>{" "}
           Developer
         </Title>
+        <div style={{ marginTop: 8, display: "flex", gap: 8 }}>
+          {" "}
+          <Button
+            component="a"
+            href="#projects"
+            variant="gradient"
+            gradient={{ from: "purple", to: "orange", deg: 45 }}
+            uppercase
+            radius="xs"
+          >
+            Projects
+          </Button>
+          <Button
+            component="a"
+            target="_blank"
+            href={resumeURL}
+            variant="outline"
+            gradient={{ from: "purple", to: "orange", deg: 45 }}
+            uppercase
+            radius="md"
+            style={{
+              color: "white",
+              border: "5px solid",
+              borderImage: "linear-gradient(45deg, #290099, #D92B00) 1",
+              borderRadius: 99,
+            }}
+          >
+            Resume
+          </Button>
+        </div>
       </motion.div>
     </section>
   );
