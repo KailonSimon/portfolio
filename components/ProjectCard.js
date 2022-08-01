@@ -14,6 +14,10 @@ const useStyles = createStyles((theme) => ({
     height: "28rem",
     borderRadius: 8,
     textAlign: "center",
+    border: `2px solid ${
+      theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
+    }`,
+    padding: 8,
   },
   projectCardTitle: {
     padding: "1rem",

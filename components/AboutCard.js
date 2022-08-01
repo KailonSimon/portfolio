@@ -16,8 +16,8 @@ const useStyles = createStyles((theme) => ({
     },
   },
   aboutCardTitle: {
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
     fontWeight: 700,
     width: "100%",
     textAlign: "center",

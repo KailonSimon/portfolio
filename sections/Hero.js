@@ -58,6 +58,7 @@ function Hero({ resumeURL }) {
             gradient={{ from: "purple", to: "orange", deg: 45 }}
             uppercase
             radius="xs"
+            size="lg"
           >
             Projects
           </Button>
@@ -68,13 +69,14 @@ function Hero({ resumeURL }) {
             variant="outline"
             gradient={{ from: "purple", to: "orange", deg: 45 }}
             uppercase
-            radius="md"
+            radius="xs"
             style={{
               color: "white",
               border: "5px solid",
               borderImage: "linear-gradient(45deg, #290099, #D92B00) 1",
               borderRadius: 99,
             }}
+            size="lg"
           >
             Resume
           </Button>

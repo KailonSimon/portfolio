@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === "dark"
         ? "rgba(56, 56, 56, 0.95)"
         : "rgba(255, 255, 255, 0.95)",
-    fontFamily: "Poppins",
+    letterSpacing: 1.5,
   },
   nav: {
     height: "4rem",
@@ -39,6 +39,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: "1.25rem",
   },
   menu: {
+    fontSize: "1.25rem",
     [theme.fn.smallerThan("md")]: {
       display: "none",
     },
