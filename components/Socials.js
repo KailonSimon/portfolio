@@ -15,6 +15,12 @@ const useStyles = createStyles((theme) => ({
       padding: "1rem 0",
     },
   },
+  socialButton: {
+    transition: "transform 0.3s",
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
+  },
 }));
 
 function Socials() {
@@ -26,6 +32,7 @@ function Socials() {
         href="https://github.com/KailonSimon"
         target="_blank"
         rel="noopener noreferrer"
+        className={classes.socialButton}
       >
         <BrandGithub size={matches ? "8vh" : 30} />
       </a>
@@ -33,6 +40,7 @@ function Socials() {
         href="https://www.linkedin.com/in/kailon-simon-59b416230/"
         target="_blank"
         rel="noopener noreferrer"
+        className={classes.socialButton}
       >
         <BrandLinkedin size={matches ? "8vh" : 30} />
       </a>

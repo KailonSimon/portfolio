@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { createStyles, Title, Text } from "@mantine/core";
 import ProjectCard from "../components/ProjectCard";
 import useEmblaCarousel from "embla-carousel-react";
-import AutoHeight from "embla-carousel-auto-height";
 
 const useStyles = createStyles((theme) => ({
   content: {

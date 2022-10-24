@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { createStyles, Button, Badge, Title, Text } from "@mantine/core";
+import { createStyles, Badge } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   badge: {
@@ -10,6 +10,10 @@ const useStyles = createStyles((theme) => ({
       padding: "0 10px",
     },
     borderRadius: 4,
+    transition: "transform 0.3s",
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
   },
   badgeLeftSection: {
     display: "flex",

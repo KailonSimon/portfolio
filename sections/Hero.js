@@ -1,5 +1,6 @@
 import { createStyles, Text, Title, Button } from "@mantine/core";
 import { motion } from "framer-motion";
+import { BrandGithub } from "tabler-icons-react";
 
 const useStyles = createStyles((theme) => ({
   content: {
@@ -50,35 +51,31 @@ function Hero({ resumeURL }) {
           Developer
         </Title>
         <div style={{ marginTop: 8, display: "flex", gap: 8 }}>
-          {" "}
           <Button
             component="a"
-            href="#projects"
+            target="_blank"
+            rel="noreferrer"
+            href={resumeURL}
             variant="gradient"
             gradient={{ from: "purple", to: "orange", deg: 45 }}
             uppercase
             radius="xs"
             size="lg"
           >
-            Projects
+            Resume
           </Button>
           <Button
             component="a"
             target="_blank"
-            href={resumeURL}
-            variant="outline"
+            rel="noreferrer"
+            href="https://github.com/KailonSimon"
+            variant="gradient"
             gradient={{ from: "purple", to: "orange", deg: 45 }}
             uppercase
             radius="xs"
-            style={{
-              color: "white",
-              border: "5px solid",
-              borderImage: "linear-gradient(45deg, #290099, #D92B00) 1",
-              borderRadius: 99,
-            }}
             size="lg"
           >
-            Resume
+            <BrandGithub />
           </Button>
         </div>
       </motion.div>

@@ -1,7 +1,6 @@
 import { BrandGithub } from "tabler-icons-react";
-import { createStyles, Button, Badge, Title, Text } from "@mantine/core";
+import { createStyles, Button, Title, Text } from "@mantine/core";
 import TechBadge from "./TechBadge";
-import { useEffect } from "react";
 import Image from "next/image";
 
 const useStyles = createStyles((theme) => ({
@@ -11,13 +10,13 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "space-between",
     position: "relative",
     width: "100%",
-    height: "28rem",
+    height: "30rem",
     borderRadius: 8,
     textAlign: "center",
     border: `2px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
     }`,
-    padding: 8,
+    padding: "1rem",
   },
   projectCardTitle: {
     padding: "1rem",
@@ -35,24 +34,13 @@ const useStyles = createStyles((theme) => ({
     maxWidth: "100%",
     aspectRatio: "16/9",
     position: "relative",
+    margin: "1rem auto",
   },
   links: {
     display: "flex",
     justifyContent: "center",
     gap: "0.5rem",
     padding: "1rem",
-  },
-  badge: {
-    [theme.fn.smallerThan("md")]: {
-      fontSize: 11,
-      height: 20,
-      lineHeight: "18px",
-      padding: "0 10px",
-    },
-  },
-  badgeLeftSection: {
-    display: "flex",
-    justifyContent: "center",
   },
 }));
 
@@ -97,6 +85,7 @@ export default function ProjectCard({ project }) {
             src={project.thumbnail.data.attributes.url}
             alt={project.thumbnail.data.attributes.alternativeText}
             layout="fill"
+            style={{ borderRadius: 8 }}
           />
         </div>
         <Text my={8} weight={500}>
