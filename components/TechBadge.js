@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { createStyles, Badge } from "@mantine/core";
+import { motion } from "framer-motion";
 
 const useStyles = createStyles((theme) => ({
   badge: {
@@ -30,6 +31,10 @@ function TechBadge({ name, image, imageAlt }) {
       size="lg"
       variant="filled"
       style={{ background: "gray" }}
+      component={motion.div}
+      initial={{ scale: 1 }}
+      whileHover={{ scale: 1.1 }}
+      transition={{ duration: 0.05 }}
       classNames={{
         root: classes.badge,
         leftSection: classes.badgeLeftSection,

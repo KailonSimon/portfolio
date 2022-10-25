@@ -1,19 +1,26 @@
 import { createStyles, Text, Title, Button } from "@mantine/core";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { BrandGithub } from "tabler-icons-react";
+import AnimatedMouse from "../components/AnimatedMouse";
 
 const useStyles = createStyles((theme) => ({
   content: {
     width: "100%",
-    height: "100%",
-    minHeight: "100vh",
+    height: "calc(100vh - 4rem)",
     maxWidth: 1280,
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    position: "relative",
+  },
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
   },
   subtitle: {
-    fontSize: "1.25rem",
+    fontSize: "1.5rem",
     fontWeight: 500,
   },
   title: {
@@ -29,6 +36,8 @@ const variants = {
 
 function Hero({ resumeURL }) {
   const { classes } = useStyles();
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, (value) => 1 - value * 10);
   return (
     <section id="hero" className={classes.content}>
       <motion.div
@@ -36,8 +45,9 @@ function Hero({ resumeURL }) {
         animate="visible"
         variants={variants}
         transition={{ duration: 1.25 }}
+        className={classes.main}
       >
-        <Text className={classes.subtitle}>{"Hi, my name is Kailon"}</Text>
+        <Text className={classes.subtitle}>{"Kailon Simon"}</Text>
         <Title order={1} className={classes.title}>
           Full Stack{" "}
           <Text
@@ -78,6 +88,20 @@ function Hero({ resumeURL }) {
             <BrandGithub />
           </Button>
         </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: "-25px" }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        whileHover={{ translateY: "20px" }}
+        style={{
+          position: "absolute",
+          bottom: 16,
+          opacity,
+        }}
+      >
+        <AnimatedMouse />
       </motion.div>
     </section>
   );

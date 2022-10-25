@@ -8,7 +8,7 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     fontSize: "1rem",
     fontWeight: 400,
-    minHeight: 128,
+    minHeight: "4rem",
     backgroundColor:
       theme.colorScheme === "dark"
         ? "rgba(56, 56, 56, 0.95)"

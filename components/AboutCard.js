@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { createStyles, Text, Title } from "@mantine/core";
+import { motion } from "framer-motion";
 
 const useStyles = createStyles((theme) => ({
   aboutCard: {
@@ -36,6 +37,7 @@ const useStyles = createStyles((theme) => ({
     padding: "1rem 0.5rem",
     gap: ".75rem",
     minHeight: "18rem",
+    overflow: "hidden",
     [theme.fn.smallerThan("sm")]: {
       minHeight: "min-content",
     },
@@ -52,13 +54,17 @@ function AboutCard({ title, skills }) {
       </Title>
       <div className={classes.aboutCardContent}>
         {skills.map((skill) => (
-          <div
+          <motion.div
             key={skill.id}
             style={{
               display: "flex",
               alignItems: "center",
               gap: 8,
             }}
+            initial={{ x: "-100%", opacity: "0" }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.75 }}
           >
             <Text weight={500}>{skill.attributes.name}</Text>
             <Image
@@ -67,7 +73,7 @@ function AboutCard({ title, skills }) {
               height={25}
               width={25}
             />
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

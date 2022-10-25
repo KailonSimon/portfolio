@@ -71,7 +71,6 @@ function NavLinks({ mobile, handleClick, resumeURL }) {
                 to={link.href}
                 spy={true}
                 smooth={true}
-                offset={-100}
                 duration={250}
                 activeClass="active"
                 onClick={handleClick}

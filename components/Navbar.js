@@ -71,7 +71,7 @@ export default function Navbar({ resumeURL }) {
     <header className={classes.header}>
       <nav className={classes.nav}>
         <div>
-          <a className={classes.logo} href="#">
+          <a className={classes.logo} id="logo" href="#">
             Kailon Simon
           </a>
         </div>

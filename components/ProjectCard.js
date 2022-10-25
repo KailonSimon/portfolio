@@ -10,7 +10,6 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "space-between",
     position: "relative",
     width: "100%",
-    height: "30rem",
     borderRadius: 8,
     textAlign: "center",
     border: `2px solid ${
@@ -26,7 +25,7 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
     gap: "0.5rem",
-    padding: "0 1rem",
+    padding: "0.5rem 1rem",
     justifyContent: "center",
   },
   imageWrapper: {
@@ -34,7 +33,9 @@ const useStyles = createStyles((theme) => ({
     maxWidth: "100%",
     aspectRatio: "16/9",
     position: "relative",
-    margin: "1rem auto",
+    [theme.fn.largerThan("md")]: {
+      margin: "1rem auto",
+    },
   },
   links: {
     display: "flex",
@@ -51,11 +52,7 @@ export default function ProjectCard({ project }) {
   return (
     <div className={classes.projectCard}>
       <div>
-        <Title
-          order={3}
-          align="center"
-          style={{ letterSpacing: 1, marginBottom: 8 }}
-        >
+        <Title order={3} align="center" style={{ letterSpacing: 1 }}>
           {name}
         </Title>
         <div className={classes.tags}>
@@ -113,7 +110,7 @@ export default function ProjectCard({ project }) {
           uppercase
           radius="xs"
         >
-          Check it out
+          Live Demo
         </Button>
       </div>
     </div>

@@ -34,6 +34,11 @@ const useStyles = createStyles((theme) => ({
   label: {
     color: "#fff",
   },
+  input: {
+    "&:focus": {
+      borderColor: "#290099",
+    },
+  },
 }));
 
 export default function ContactForm() {
@@ -102,21 +107,22 @@ export default function ContactForm() {
           placeholder="Name"
           {...form.getInputProps("name")}
           radius="xs"
-          classNames={{ label: classes.label }}
+          classNames={{ label: classes.label, input: classes.input }}
+          spellCheck="false"
         />
         <TextInput
           label="Email"
           placeholder="your@email.com"
           {...form.getInputProps("email")}
           radius="xs"
-          classNames={{ label: classes.label }}
+          classNames={{ label: classes.label, input: classes.input }}
         />
         <Textarea
           label="Message"
           placeholder="Message"
           {...form.getInputProps("message")}
           radius="xs"
-          classNames={{ label: classes.label }}
+          classNames={{ label: classes.label, input: classes.input }}
         />
         <Button
           mt={8}

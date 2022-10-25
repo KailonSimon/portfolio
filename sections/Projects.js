@@ -26,7 +26,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function Projects({ projects }) {
   const { classes } = useStyles();
-  const [emblaRef, embla] = useEmblaCarousel();
+  const [emblaRef, embla] = useEmblaCarousel({ loop: false });
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const onScroll = useCallback(() => {
