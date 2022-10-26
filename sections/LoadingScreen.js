@@ -29,7 +29,6 @@ function LoadingScreen() {
           </div>
         </div>
       </div>
-      <div className="background" />
     </>
   );
 }

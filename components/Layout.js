@@ -20,7 +20,6 @@ export default function Layout({ children, ...pageProps }) {
   return (
     <>
       <Navbar resumeURL={resumeURL} />
-      <div className="background" />
       <main className={classes.contentWrapper}>{children}</main>
       <Footer />
     </>

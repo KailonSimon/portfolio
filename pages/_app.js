@@ -23,29 +23,32 @@ function MyApp({ Component, pageProps }) {
     }
   }, [loading]);
 
-  if (loading) return <LoadingScreen />;
-
   return (
     <>
       <GoogleAnalytics
         gaMeasurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
       />
-      <ColorSchemeProvider
-        colorScheme={colorScheme}
-        toggleColorScheme={toggleColorScheme}
-      >
-        <MantineProvider
-          theme={colorScheme === "dark" ? darkTheme : lightTheme}
-          withGlobalStyle
-          withNormalizeCss
+      {loading ? (
+        <LoadingScreen />
+      ) : (
+        <ColorSchemeProvider
+          colorScheme={colorScheme}
+          toggleColorScheme={toggleColorScheme}
         >
-          <NotificationsProvider zIndex={999}>
-            <Layout {...pageProps}>
-              <Component {...pageProps} />
-            </Layout>
-          </NotificationsProvider>
-        </MantineProvider>
-      </ColorSchemeProvider>
+          <MantineProvider
+            theme={colorScheme === "dark" ? darkTheme : lightTheme}
+            withGlobalStyle
+            withNormalizeCss
+          >
+            <NotificationsProvider zIndex={999}>
+              <Layout {...pageProps}>
+                <Component {...pageProps} />
+              </Layout>
+            </NotificationsProvider>
+          </MantineProvider>
+        </ColorSchemeProvider>
+      )}
+      <div className="background" />
     </>
   );
 }
