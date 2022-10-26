@@ -12,6 +12,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
+  background: #121212;
 }
 
 @keyframes shift {
@@ -40,7 +41,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: #121212;
 }
 
 a {
@@ -366,6 +366,7 @@ li > a::after {
   animation: bg-animation 0.2s infinite;
   opacity: 0.9;
   visibility: visible;
+  z-index: -9999;
 }
 
 @keyframes bg-animation {
