@@ -6,13 +6,14 @@ import AnimatedMouse from "../components/AnimatedMouse";
 const useStyles = createStyles((theme) => ({
   content: {
     width: "100%",
-    height: "calc(100vh - 4rem)",
+    minHeight: "calc(100vh - 4rem)",
     maxWidth: 1280,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    paddingBottom: "calc(env(safe-area-inset-bottom) + 16px)",
   },
   main: {
     display: "flex",
@@ -26,6 +27,10 @@ const useStyles = createStyles((theme) => ({
   title: {
     fontSize: "3rem",
     fontWeight: 700,
+  },
+  scrollIcon: {
+    position: "absolute",
+    bottom: 0,
   },
 }));
 
@@ -96,10 +101,9 @@ function Hero({ resumeURL }) {
         transition={{ duration: 1, delay: 1.5 }}
         whileHover={{ translateY: "20px" }}
         style={{
-          position: "absolute",
-          bottom: 16,
           opacity,
         }}
+        className={classes.scrollIcon}
       >
         <AnimatedMouse />
       </motion.div>

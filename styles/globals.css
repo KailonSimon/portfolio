@@ -114,24 +114,6 @@ li > a::after {
   width: 30px;
 }
 
-#logo {
-  text-transform: uppercase;
-  background-image: linear-gradient(
-    45deg,
-    #290099 0%,
-    #d92b00 50%,
-    #fff 75%,
-    #fff 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 400% auto;
-  color: #fff;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textGradient 3s linear 0.5s 1 forwards;
-}
-
 @keyframes textGradient {
   0% {
     background-position: 0% 50%;

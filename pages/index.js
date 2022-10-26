@@ -15,6 +15,7 @@ export default function Home({
     <>
       <Head>
         <title>Kailon Simon | Developer</title>
+        <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
       </Head>
       <Hero resumeURL={resumeURL} />
       <About languages={languages} technologies={technologies} other={skills} />
