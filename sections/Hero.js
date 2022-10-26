@@ -6,14 +6,15 @@ import AnimatedMouse from "../components/AnimatedMouse";
 const useStyles = createStyles((theme) => ({
   content: {
     width: "100%",
-    minHeight: "calc(100vh - 4rem)",
+    minHeight:
+      "calc(100vh - 4rem - env(safe-area-inset-bottom) - env(safe-area-inset-top))",
     maxWidth: 1280,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
-    paddingBottom: "calc(env(safe-area-inset-bottom) + 16px)",
+    paddingBottom: "1rem",
   },
   main: {
     display: "flex",
