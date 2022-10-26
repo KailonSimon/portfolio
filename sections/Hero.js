@@ -1,12 +1,12 @@
-import { createStyles, Text, Title, Button } from "@mantine/core";
+import { createStyles, Text, Title, Button, Loader } from "@mantine/core";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { BrandGithub } from "tabler-icons-react";
 import AnimatedMouse from "../components/AnimatedMouse";
+import { measureHeight } from "react-div-100vh";
 
 const useStyles = createStyles((theme) => ({
   content: {
     width: "100%",
-    minHeight: "calc(100vh - 4rem)",
     maxWidth: 1280,
     display: "flex",
     flexDirection: "column",
@@ -43,9 +43,15 @@ const variants = {
 function Hero({ resumeURL }) {
   const { classes } = useStyles();
   const { scrollYProgress } = useScroll();
+  const componentHeight = measureHeight() - 64;
   const opacity = useTransform(scrollYProgress, (value) => 1 - value * 10);
+
   return (
-    <section id="hero" className={classes.content}>
+    <section
+      id="hero"
+      className={classes.content}
+      style={{ height: componentHeight }}
+    >
       <motion.div
         initial="hidden"
         animate="visible"
