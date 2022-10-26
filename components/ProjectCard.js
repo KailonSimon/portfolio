@@ -12,6 +12,8 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     borderRadius: 8,
     textAlign: "center",
+    backgroundColor:
+      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
     border: `2px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
     }`,

@@ -9,7 +9,7 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "4rem 1rem 0",
+    padding: "4rem 1rem",
   },
 }));
 
@@ -20,6 +20,7 @@ export default function Layout({ children, ...pageProps }) {
   return (
     <>
       <Navbar resumeURL={resumeURL} />
+      <div className="background" />
       <main className={classes.contentWrapper}>{children}</main>
       <Footer />
     </>
