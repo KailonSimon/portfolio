@@ -12,10 +12,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
+  padding: 0;
 }
 
 body {
-  min-height: -webkit-fill-available;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 @keyframes shift {
@@ -41,7 +43,7 @@ h6 {
 
 html,
 body {
-  padding: 0;
+  height: 100%;
   margin: 0;
   background: #121212;
 }
