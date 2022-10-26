@@ -31,6 +31,7 @@ const useStyles = createStyles((theme) => ({
   scrollIcon: {
     position: "absolute",
     bottom: 0,
+    padding: "inherit",
   },
 }));
 

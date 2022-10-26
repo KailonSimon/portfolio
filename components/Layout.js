@@ -9,7 +9,7 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "4rem 1rem 0",
+    padding: "4rem 1rem",
   },
 }));
 
