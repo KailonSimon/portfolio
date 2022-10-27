@@ -41,6 +41,7 @@ const theme = {
         input: {
           border: "2px solid #000",
           boxShadow: "black 4px 4px 0 0",
+          caretColor: theme.colors.brand,
           "&:focus": {
             borderColor: theme.colors.brand,
           },
@@ -52,6 +53,7 @@ const theme = {
         input: {
           border: "2px solid #000",
           boxShadow: "black 4px 4px 0 0",
+          caretColor: theme.colors.brand,
           "&:focus": {
             borderColor: theme.colors.brand,
           },
