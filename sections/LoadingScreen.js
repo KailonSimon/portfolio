@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function LoadingScreen() {
   return (
@@ -9,6 +9,7 @@ function LoadingScreen() {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
+          boxShadow: "inset 0 0 5vw 0.5rem #000",
         }}
       >
         <div className="loading-container">

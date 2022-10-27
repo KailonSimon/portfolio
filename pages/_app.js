@@ -3,7 +3,7 @@ import { NotificationsProvider } from "@mantine/notifications";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
-import { darkTheme, lightTheme } from "../theme";
+import { theme } from "../theme";
 import { GoogleAnalytics, usePageViews } from "nextjs-google-analytics";
 import LoadingScreen from "../sections/LoadingScreen";
 
@@ -35,11 +35,7 @@ function MyApp({ Component, pageProps }) {
           colorScheme={colorScheme}
           toggleColorScheme={toggleColorScheme}
         >
-          <MantineProvider
-            theme={colorScheme === "dark" ? darkTheme : lightTheme}
-            withGlobalStyle
-            withNormalizeCss
-          >
+          <MantineProvider theme={theme} withGlobalStyle withNormalizeCss>
             <NotificationsProvider zIndex={999}>
               <Layout {...pageProps}>
                 <Component {...pageProps} />

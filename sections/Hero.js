@@ -19,19 +19,30 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    padding: "0 1rem",
   },
   subtitle: {
-    fontSize: "1.5rem",
+    fontSize: "1.75rem",
     fontWeight: 500,
+    marginBottom: -8,
   },
   title: {
     fontSize: "3rem",
     fontWeight: 700,
+    lineHeight: 1,
   },
   scrollIcon: {
     position: "absolute",
     bottom: 0,
     padding: "inherit",
+  },
+  controls: {
+    marginTop: 8,
+    display: "flex",
+    gap: 8,
+    [theme.fn.smallerThan("sm")]: {
+      marginTop: 16,
+    },
   },
 }));
 
@@ -50,7 +61,7 @@ function Hero({ resumeURL }) {
     <section
       id="hero"
       className={classes.content}
-      style={{ height: componentHeight }}
+      style={{ height: componentHeight > 0 ? componentHeight : "100vh" }}
     >
       <motion.div
         initial="hidden"
@@ -64,25 +75,25 @@ function Hero({ resumeURL }) {
           Full Stack{" "}
           <Text
             component="span"
-            variant="gradient"
-            style={{ fontSize: "inherit", fontFamily: "inherit" }}
-            gradient={{ from: "purple", to: "orange", deg: 45 }}
+            sx={(theme) => ({
+              color: theme.colors.brand,
+              fontSize: "inherit",
+              fontFamily: "inherit",
+            })}
           >
             Web
           </Text>{" "}
           Developer
         </Title>
-        <div style={{ marginTop: 8, display: "flex", gap: 8 }}>
+        <div className={classes.controls}>
           <Button
             component="a"
             target="_blank"
             rel="noreferrer"
             href={resumeURL}
-            variant="gradient"
-            gradient={{ from: "purple", to: "orange", deg: 45 }}
             uppercase
-            radius="xs"
             size="lg"
+            color="brand"
           >
             Resume
           </Button>
@@ -91,11 +102,10 @@ function Hero({ resumeURL }) {
             target="_blank"
             rel="noreferrer"
             href="https://github.com/KailonSimon"
-            variant="gradient"
-            gradient={{ from: "purple", to: "orange", deg: 45 }}
             uppercase
-            radius="xs"
             size="lg"
+            variant="outline"
+            color="brand"
           >
             <BrandGithub />
           </Button>

@@ -6,17 +6,17 @@ const useStyles = createStyles((theme) => ({
     height: "fit-content",
     width: "100%",
     maxWidth: 1280,
-    marginTop: "2rem",
     position: "relative",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    marginTop: "4rem",
   },
   title: {
     fontSize: "3rem",
     fontWeight: 700,
-    color: theme.colorScheme === "dark" ? theme.colors.blue[3] : theme.white,
+    color: theme.colors.brand,
     marginBottom: "0.5rem",
     textAlign: "center",
     position: "relative",
@@ -27,13 +27,7 @@ export default function Contact() {
   const { classes } = useStyles();
   return (
     <section id="contact" className={classes.content}>
-      <Title
-        order={2}
-        component={Text}
-        className={classes.title}
-        variant="gradient"
-        gradient={{ from: "purple", to: "orange", deg: 45 }}
-      >
+      <Title order={2} component={Text} className={classes.title}>
         Contact
       </Title>
       <ContactForm />

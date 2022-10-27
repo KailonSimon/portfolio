@@ -1,56 +1,64 @@
-const sharedTheme = {
-  fontFamily: "Poppins",
-  headings: { fontFamily: "Staatliches" },
+import { ChevronUp } from "tabler-icons-react";
+
+const theme = {
+  colorScheme: "dark",
+  fontFamily: "VT323, sans-serif",
+  headings: { fontFamily: "VT323, sans-serif" },
   colors: {
-    blue: [
-      "#C8F1FF",
-      "#98E2FF",
-      "#87CEFA",
-      "#3CC8FF",
-      "#07BFFF",
-      "#00B5FF",
-      "#87CEFA",
-      "#009AFF",
-      "#008AFF",
-      "#008AFF",
+    brand: [
+      "#33ff33",
+      "#33ff33",
+      "#33ff33",
+      "#33ff33",
+      "#33ff33",
+      "#33ff33",
+      "#33ff33",
+      "#33ff33",
+      "#33ff33",
+      "#33ff33",
     ],
-    orange: [
-      "#FFA366",
-      "#FF893A",
-      "#FF7112",
-      "#FF5D00",
-      "#FA5D0F",
-      "#FF3E00",
-      "#FF3500",
-      "#F13000",
-      "#D92B00",
-      "#C42700",
-    ],
-    purple: [
-      "#290099",
-      "#290099",
-      "#290099",
-      "#290099",
-      "#290099",
-      "#290099",
-      "#290099",
-      "#290099",
-      "#290099",
-      "#290099",
-    ],
+  },
+  primaryColor: "brand",
+  components: {
+    Button: {
+      styles: (theme, params) => ({
+        root: {
+          background: params.variant === "filled" ? theme.brand : "transparent",
+          color: params.variant === "filled" ? "#121212" : theme.brand,
+          border: "2px solid #000",
+          borderRadius: 4,
+          boxShadow: "black 4px 4px 0 0",
+          padding: "0 16px",
+          minWidth: "4rem",
+          "&:hover": {
+            transform: "translate(1px, 1px)",
+          },
+        },
+      }),
+    },
+    TextInput: {
+      styles: (theme, params) => ({
+        input: {
+          border: "2px solid #000",
+          boxShadow: "black 4px 4px 0 0",
+          "&:focus": {
+            borderColor: theme.colors.brand,
+          },
+        },
+      }),
+    },
+    Textarea: {
+      styles: (theme, params) => ({
+        input: {
+          border: "2px solid #000",
+          boxShadow: "black 4px 4px 0 0",
+          "&:focus": {
+            borderColor: theme.colors.brand,
+          },
+        },
+      }),
+    },
   },
 };
 
-const darkTheme = {
-  ...sharedTheme,
-  colorScheme: "dark",
-  primary: "purple",
-};
-
-const lightTheme = {
-  ...sharedTheme,
-  colorScheme: "light",
-  primary: "blue",
-};
-
-export { darkTheme, lightTheme };
+export { theme };

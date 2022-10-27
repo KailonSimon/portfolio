@@ -14,10 +14,9 @@ const useStyles = createStyles((theme) => ({
     textAlign: "center",
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
-    border: `2px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
-    }`,
     padding: "1rem",
+    border: "2px solid #000",
+    boxShadow: "black 4px 4px 0 0",
   },
   projectCardTitle: {
     padding: "1rem",
@@ -95,24 +94,23 @@ export default function ProjectCard({ project }) {
       <div className={classes.links}>
         <Button
           component="a"
-          href={githubURL}
+          href={demoURL}
           target="_blank"
-          variant="gradient"
-          gradient={{ from: "purple", to: "orange", deg: 45 }}
+          uppercase
           radius="xs"
+          color="brand"
         >
-          <BrandGithub />
+          Live Demo
         </Button>
         <Button
           component="a"
-          href={demoURL}
+          href={githubURL}
           target="_blank"
-          variant="gradient"
-          gradient={{ from: "purple", to: "orange", deg: 45 }}
-          uppercase
           radius="xs"
+          color="brand"
+          variant="outline"
         >
-          Live Demo
+          <BrandGithub />
         </Button>
       </div>
     </div>

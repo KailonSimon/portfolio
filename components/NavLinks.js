@@ -13,7 +13,6 @@ const useStyles = createStyles((theme) => ({
       justifyContent: "center",
       gap: "5vh",
       flex: 1,
-      marginTop: 64,
     },
   },
   navItem: {

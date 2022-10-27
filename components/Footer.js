@@ -15,7 +15,7 @@ const useStyles = createStyles((theme) => ({
         : "rgba(255, 255, 255, 0.95)",
     padding: "1rem",
     color: theme.colorScheme === "dark" ? theme.white : theme.colors.blue[3],
-    zIndex: 998,
+    zIndex: 2,
     position: "relative",
   },
 }));

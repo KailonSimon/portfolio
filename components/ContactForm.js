@@ -23,9 +23,8 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
-    border: `2px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
-    }`,
+    border: "2px solid #000",
+    boxShadow: "black 4px 4px 0 0",
     padding: "1rem 2rem",
     display: "flex",
     flexDirection: "column",
@@ -33,11 +32,6 @@ const useStyles = createStyles((theme) => ({
   },
   label: {
     color: "#fff",
-  },
-  input: {
-    "&:focus": {
-      borderColor: "#290099",
-    },
   },
 }));
 
@@ -107,7 +101,7 @@ export default function ContactForm() {
           placeholder="Name"
           {...form.getInputProps("name")}
           radius="xs"
-          classNames={{ label: classes.label, input: classes.input }}
+          classNames={{ label: classes.label }}
           spellCheck="false"
         />
         <TextInput
@@ -115,24 +109,23 @@ export default function ContactForm() {
           placeholder="your@email.com"
           {...form.getInputProps("email")}
           radius="xs"
-          classNames={{ label: classes.label, input: classes.input }}
+          classNames={{ label: classes.label }}
         />
         <Textarea
           label="Message"
           placeholder="Message"
           {...form.getInputProps("message")}
           radius="xs"
-          classNames={{ label: classes.label, input: classes.input }}
+          classNames={{ label: classes.label }}
         />
         <Button
           mt={8}
-          variant="gradient"
-          gradient={{ from: "purple", to: "orange", deg: 45 }}
           uppercase
           style={{ alignSelf: "flex-end", width: "40%", minWidth: 100 }}
           radius="xs"
           type="submit"
           disabled={isLoading}
+          color="brand"
         >
           Submit
         </Button>

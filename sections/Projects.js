@@ -8,8 +8,8 @@ const useStyles = createStyles((theme) => ({
     height: "fit-content",
     width: "100%",
     maxWidth: 1280,
-    marginTop: "2rem",
     position: "relative",
+    marginTop: "4rem",
   },
   title: {
     fontSize: "3rem",
@@ -17,6 +17,7 @@ const useStyles = createStyles((theme) => ({
     marginBottom: "0.5rem",
     textAlign: "center",
     position: "relative",
+    color: theme.colors.brand,
   },
   carouselIndicators: {
     position: "relative",
@@ -43,13 +44,7 @@ export default function Projects({ projects }) {
 
   return (
     <section id="projects" className={classes.content}>
-      <Title
-        order={2}
-        component={Text}
-        className={classes.title}
-        variant="gradient"
-        gradient={{ from: "purple", to: "orange", deg: 45 }}
-      >
+      <Title order={2} component={Text} className={classes.title}>
         Projects
       </Title>
       {projects ? (

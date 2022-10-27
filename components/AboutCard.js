@@ -5,13 +5,12 @@ import { motion } from "framer-motion";
 const useStyles = createStyles((theme) => ({
   aboutCard: {
     position: "relative",
-    minWidth: "20rem",
+    minWidth: "14rem",
     borderRadius: 8,
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
-    border: `2px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.blue[1]
-    }`,
+    border: "2px solid #000",
+    boxShadow: "black 4px 4px 0 0",
     [theme.fn.smallerThan("md")]: {
       minWidth: "15rem",
     },

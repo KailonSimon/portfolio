@@ -2,6 +2,7 @@ import { Drawer, Burger, createStyles } from "@mantine/core";
 import { useState } from "react";
 import NavLinks from "./NavLinks";
 import Socials from "./Socials";
+import { measureHeight } from "react-div-100vh";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -32,10 +33,13 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     fontSize: "5vh",
     width: "100%",
-    height: "100%",
+    height: "calc(100vh - var(nav-height))",
+    boxShadow: "inset 0 0 5vw 0.5rem #000",
+    marginTop: "var(--nav-height)",
+    padding: "1rem",
   },
   logo: {
-    color: theme.colorScheme === "dark" ? theme.white : theme.primaryColor,
+    color: theme.white,
     fontSize: "1.25rem",
   },
   menu: {
@@ -57,6 +61,7 @@ const useStyles = createStyles((theme) => ({
   },
   drawer: {
     display: "flex",
+    background: "#121212",
     [theme.fn.largerThan("md")]: {
       display: "none",
     },
@@ -66,6 +71,7 @@ const useStyles = createStyles((theme) => ({
 export default function Navbar({ resumeURL }) {
   const { classes } = useStyles();
   const [opened, setOpened] = useState(false);
+  const componentHeight = measureHeight() - 64;
 
   return (
     <header className={classes.header}>
@@ -105,7 +111,10 @@ export default function Navbar({ resumeURL }) {
         }}
         classNames={{ drawer: classes.drawer }}
       >
-        <div className={classes.drawerContent}>
+        <div
+          className={classes.drawerContent}
+          style={{ height: componentHeight }}
+        >
           <NavLinks
             mobile={true}
             handleClick={() => setOpened(!opened)}
