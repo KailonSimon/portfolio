@@ -85,7 +85,7 @@ export default function ProjectCard({ project }) {
             src={project.thumbnail.data.attributes.url}
             alt={project.thumbnail.data.attributes.alternativeText}
             layout="fill"
-            style={{ borderRadius: 8 }}
+            style={{ borderRadius: 4 }}
           />
         </div>
         <Text my={8} weight={500}>
