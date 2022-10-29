@@ -13,13 +13,6 @@ export default function Home({
 }) {
   return (
     <>
-      <Head>
-        <title>Kailon Simon | Developer</title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-        />
-      </Head>
       <Hero resumeURL={resumeURL} />
       <About languages={languages} technologies={technologies} other={skills} />
       <Projects projects={projects} />

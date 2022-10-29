@@ -6,6 +6,7 @@ import "../styles/globals.css";
 import { theme } from "../theme";
 import { GoogleAnalytics, usePageViews } from "nextjs-google-analytics";
 import LoadingScreen from "../sections/LoadingScreen";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   usePageViews();
@@ -28,6 +29,13 @@ function MyApp({ Component, pageProps }) {
       <GoogleAnalytics
         gaMeasurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
       />
+      <Head>
+        <title>Kailon Simon | Developer</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+      </Head>
       {loading ? (
         <LoadingScreen />
       ) : (
