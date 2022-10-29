@@ -1,6 +1,5 @@
 :root {
   --brand-color: #33ff33;
-  --nav-color: rgba(31, 31, 31, 0.8);
   --nav-height: 4rem;
   --footer-height: 4rem;
 }
@@ -33,7 +32,7 @@ body {
 
 a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.75);
+  color: inherit;
   font-family: "VT323";
   transition: all 0.3s;
   letter-spacing: 1.25px;
@@ -54,28 +53,20 @@ ul {
   margin: 0;
 }
 
-li > a[class~="active"] {
-  color: rgba(255, 255, 255, 1);
-  transition: all 0.3s;
+li > a {
+  padding: 2px 4px;
 }
 
-li > a:hover::after {
-}
-
-li > a[class~="active"]::after,
-li > a:hover::after {
-  width: 100%;
-}
-
-li > a::after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 4px;
+li > a:hover {
   background: var(--brand-color);
-  transition: width 0.3s ease 0s, right 0.3s ease 0s;
-  width: 0;
+  color: #121212;
+}
+
+li > a[class~="active"]::before {
+  content: "▪";
+  margin: auto 4px auto 0;
+  display: inline-block;
+  vertical-align: text-top;
 }
 
 * {

@@ -8,11 +8,8 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     fontSize: "1rem",
     fontWeight: 400,
-    minHeight: "4rem",
-    backgroundColor:
-      theme.colorScheme === "dark"
-        ? "rgba(56, 56, 56, 0.95)"
-        : "rgba(255, 255, 255, 0.95)",
+    minHeight: "16rem",
+    backgroundColor: "#121212",
     padding: "1rem",
     color: theme.colorScheme === "dark" ? theme.white : theme.colors.blue[3],
     zIndex: 2,

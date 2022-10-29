@@ -11,10 +11,7 @@ const useStyles = createStyles((theme) => ({
     top: 0,
     left: 0,
     zIndex: 999,
-    backgroundColor:
-      theme.colorScheme === "dark"
-        ? "rgba(56, 56, 56, 0.95)"
-        : "rgba(255, 255, 255, 0.95)",
+    backgroundColor: "#121212",
     letterSpacing: 1.5,
   },
   nav: {
@@ -39,7 +36,7 @@ const useStyles = createStyles((theme) => ({
     padding: "1rem",
   },
   logo: {
-    color: theme.white,
+    color: theme.colors.brand,
     fontSize: "1.25rem",
   },
   menu: {
@@ -96,6 +93,7 @@ export default function Navbar({ resumeURL }) {
             opened={opened}
             onClick={() => setOpened(!opened)}
             size="sm"
+            color="#33ff33"
           />
         </div>
       </nav>

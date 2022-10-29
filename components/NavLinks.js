@@ -8,15 +8,28 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     gap: "3rem",
     [theme.fn.smallerThan("md")]: {
+      display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
       gap: "5vh",
       flex: 1,
+      width: 600,
+      maxWidth: "100%",
     },
   },
   navItem: {
     cursor: "pointer",
+    color: theme.colors.brand,
+    [theme.fn.smallerThan("md")]: {
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      "&:hover": {
+        background: theme.colors.brand,
+        color: "#121212",
+      },
+    },
   },
 }));
 
@@ -73,6 +86,7 @@ function NavLinks({ mobile, handleClick, resumeURL }) {
                 duration={250}
                 activeClass="active"
                 onClick={handleClick}
+                offset={-80}
               >
                 {link.text}
               </Link>
@@ -96,7 +110,7 @@ function NavLinks({ mobile, handleClick, resumeURL }) {
               to={link.href}
               spy={true}
               smooth={true}
-              offset={-100}
+              offset={-128}
               duration={250}
               activeClass="active"
             >

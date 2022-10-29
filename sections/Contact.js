@@ -11,7 +11,10 @@ const useStyles = createStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: "4rem",
+    padding: "4em 0",
+    [theme.fn.smallerThan("sm")]: {
+      padding: "2em 0",
+    },
   },
   title: {
     fontSize: "3rem",

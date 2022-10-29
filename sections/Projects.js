@@ -8,7 +8,10 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     maxWidth: 1280,
     position: "relative",
-    marginTop: "4rem",
+    padding: "4em 0",
+    [theme.fn.smallerThan("sm")]: {
+      padding: "2em 0",
+    },
   },
   title: {
     fontSize: "3rem",

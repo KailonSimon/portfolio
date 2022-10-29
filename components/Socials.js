@@ -10,6 +10,7 @@ const useStyles = createStyles((theme) => ({
     height: "fit-content",
     width: 150,
     marginTop: 8,
+    color: theme.colors.brand,
     [theme.fn.smallerThan("md")]: {
       marginTop: 0,
       padding: "1rem 0",

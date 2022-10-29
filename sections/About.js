@@ -9,8 +9,11 @@ const useStyles = createStyles((theme) => ({
     height: "fit-content",
     width: "100%",
     maxWidth: 1280,
-    marginTop: "4rem",
     position: "relative",
+    padding: "4em 0",
+    [theme.fn.smallerThan("sm")]: {
+      padding: "2em 0",
+    },
   },
   title: {
     fontSize: "3rem",
