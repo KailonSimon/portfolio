@@ -17,6 +17,8 @@ const useStyles = createStyles((theme) => ({
     padding: "1rem",
     border: "2px solid #000",
     boxShadow: "black 4px 4px 0 0",
+    height: 490,
+    marginBottom: 10,
   },
   projectCardTitle: {
     padding: "1rem",
