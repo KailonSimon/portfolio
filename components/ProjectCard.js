@@ -101,6 +101,7 @@ export default function ProjectCard({ project }) {
           uppercase
           radius="xs"
           color="brand"
+          size="lg"
         >
           Live Demo
         </Button>
@@ -111,6 +112,7 @@ export default function ProjectCard({ project }) {
           radius="xs"
           color="brand"
           variant="outline"
+          size="lg"
         >
           <BrandGithub />
         </Button>

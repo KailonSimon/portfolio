@@ -17,6 +17,7 @@ const useStyles = createStyles((theme) => ({
     textAlign: "center",
     position: "relative",
     color: theme.colors.brand,
+    letterSpacing: 1.25,
   },
   carouselIndicators: {
     position: "relative",

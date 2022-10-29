@@ -28,10 +28,14 @@ const theme = {
           border: "2px solid #000",
           borderRadius: 4,
           boxShadow: "black 4px 4px 0 0",
-          padding: "0 16px",
           minWidth: "4rem",
+          letterSpacing: 1.25,
+          fontSize: 20,
           "&:hover": {
             transform: "translate(1px, 1px)",
+          },
+          "&:active": {
+            transform: "translate(2px, 2px)",
           },
         },
       }),

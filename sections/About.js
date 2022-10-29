@@ -19,6 +19,7 @@ const useStyles = createStyles((theme) => ({
     marginBottom: "0.5rem",
     textAlign: "center",
     position: "relative",
+    letterSpacing: 1.25,
   },
   aboutCardContainer: {
     display: "flex",

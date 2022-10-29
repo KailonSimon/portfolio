@@ -30,6 +30,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: "3rem",
     fontWeight: 700,
     lineHeight: 1,
+    letterSpacing: 1.25,
   },
   scrollIcon: {
     position: "absolute",

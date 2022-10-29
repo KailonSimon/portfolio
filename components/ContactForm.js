@@ -68,13 +68,13 @@ export default function ContactForm() {
             title: "Message sent!",
             message: "I will get back to you shortly 😃",
             autoClose: 5000,
-            color: "green",
-            icon: <Check />,
+            color: "brand",
             styles: (theme) => ({
               root: {
                 backgroundColor: theme.colors.dark[7],
                 borderRadius: 8,
-                border: `2px solid ${theme.colors.dark[3]}`,
+                border: "2px solid #000",
+                boxShadow: "black 4px 4px 0 0",
               },
             }),
           });
@@ -99,6 +99,7 @@ export default function ContactForm() {
         <TextInput
           label="Name"
           placeholder="Name"
+          size="lg"
           {...form.getInputProps("name")}
           radius="xs"
           classNames={{ label: classes.label }}
@@ -107,6 +108,7 @@ export default function ContactForm() {
         <TextInput
           label="Email"
           placeholder="your@email.com"
+          size="lg"
           {...form.getInputProps("email")}
           radius="xs"
           classNames={{ label: classes.label }}
@@ -114,18 +116,20 @@ export default function ContactForm() {
         <Textarea
           label="Message"
           placeholder="Message"
+          size="lg"
           {...form.getInputProps("message")}
           radius="xs"
           classNames={{ label: classes.label }}
         />
         <Button
-          mt={8}
+          mt={12}
           uppercase
           style={{ alignSelf: "flex-end", width: "40%", minWidth: 100 }}
           radius="xs"
           type="submit"
           disabled={isLoading}
           color="brand"
+          size="lg"
         >
           Submit
         </Button>
