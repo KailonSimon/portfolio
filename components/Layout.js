@@ -18,6 +18,7 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     zIndex: 999,
     boxShadow: "inset 0 0 5vw 0.5rem #000",
+    pointerEvents: "none",
   },
 }));
 
