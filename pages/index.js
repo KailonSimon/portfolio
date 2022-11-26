@@ -13,8 +13,8 @@ export default function Home({
   return (
     <>
       <Hero resumeURL={resumeURL} />
-      <About languages={languages} technologies={technologies} other={skills} />
       <Projects projects={projects} />
+      <About languages={languages} technologies={technologies} other={skills} />
       <Contact />
     </>
   );
