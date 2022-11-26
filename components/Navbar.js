@@ -29,7 +29,7 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     fontSize: "5vh",
-    width: "100%",
+    width: "100vw",
     height: "calc(100vh - var(nav-height))",
     boxShadow: "inset 0 0 5vw 0.5rem #000",
     marginTop: "var(--nav-height)",
@@ -56,6 +56,7 @@ const useStyles = createStyles((theme) => ({
       display: "none",
     },
   },
+
   drawer: {
     display: "flex",
     background: "#121212",
