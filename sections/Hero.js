@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { BrandGithub } from "tabler-icons-react";
 import AnimatedMouse from "../components/AnimatedMouse";
 import { measureHeight } from "react-div-100vh";
+import Typewriter from "typewriter-effect";
 
 const useStyles = createStyles((theme) => ({
   content: {
@@ -20,6 +21,8 @@ const useStyles = createStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     padding: "0 1rem",
+    width: "40rem",
+    maxWidth: "calc(100vw - 32px)",
   },
   subtitle: {
     fontSize: "1.75rem",
@@ -31,6 +34,11 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 700,
     lineHeight: 1,
     letterSpacing: 1.25,
+    fontFamily: "VT323",
+  },
+  titleCursor: {
+    fontSize: 48,
+    color: "transparent",
   },
   scrollIcon: {
     position: "absolute",
@@ -64,28 +72,19 @@ function Hero({ resumeURL }) {
       className={classes.content}
       style={{ height: componentHeight > 0 ? componentHeight : "100vh" }}
     >
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={variants}
-        transition={{ duration: 1.25 }}
-        className={classes.main}
-      >
+      <div className={classes.main}>
         <Text className={classes.subtitle}>{"Kailon Simon"}</Text>
-        <Title order={1} className={classes.title}>
-          Full Stack{" "}
-          <Text
-            component="span"
-            sx={(theme) => ({
-              color: theme.colors.brand,
-              fontSize: "inherit",
-              fontFamily: "inherit",
-            })}
-          >
-            Web
-          </Text>{" "}
-          Developer
-        </Title>
+        <Typewriter
+          options={{
+            strings: "Full Stack Web Developer.",
+            autoStart: true,
+            loop: true,
+            pauseFor: 3600,
+            skipAddStyles: true,
+            wrapperClassName: classes.title,
+            cursorClassName: classes.titleCursor,
+          }}
+        />
         <div className={classes.controls}>
           <Button
             component="a"
@@ -117,7 +116,7 @@ function Hero({ resumeURL }) {
             <BrandGithub />
           </Button>
         </div>
-      </motion.div>
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: "-25px" }}

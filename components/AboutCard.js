@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import Image from "next/image";
-import { createStyles, Text, Title } from "@mantine/core";
-import { motion } from "framer-motion";
+import { createStyles, Title } from "@mantine/core";
+import { useIntersection } from "@mantine/hooks";
+import Typewriter from "typewriter-effect";
 
 const useStyles = createStyles((theme) => ({
   aboutCard: {
@@ -41,38 +43,56 @@ const useStyles = createStyles((theme) => ({
       minHeight: "min-content",
     },
   },
+  title: {
+    fontWeight: 700,
+    lineHeight: 1,
+    letterSpacing: 1.25,
+    fontFamily: "VT323",
+  },
+  titleCursor: {
+    color: "transparent",
+  },
 }));
 
 function AboutCard({ title, skills }) {
   const { classes } = useStyles();
-
+  const containerRef = useRef();
+  const { ref, entry } = useIntersection({
+    root: containerRef.current,
+    threshold: 1,
+  });
   return (
     <div className={classes.aboutCard}>
       <Title order={3} className={classes.aboutCardTitle}>
         {title}
       </Title>
-      <div className={classes.aboutCardContent}>
+      <div className={classes.aboutCardContent} ref={containerRef}>
         {skills.map((skill) => (
-          <motion.div
+          <div
             key={skill.id}
             style={{
               display: "flex",
               alignItems: "center",
               gap: 8,
             }}
-            initial={{ x: "-100%", opacity: "0" }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.75 }}
+            ref={ref}
           >
-            <Text weight={500}>{skill.attributes.name}</Text>
+            <Typewriter
+              options={{
+                autoStart: entry?.isIntersecting ? true : false,
+                strings: skill.attributes.name,
+                skipAddStyles: true,
+                wrapperClassName: classes.title,
+                cursorClassName: classes.titleCursor,
+              }}
+            />
             <Image
               src={skill.attributes.image.data.attributes.url}
               alt={skill.attributes.image.data.attributes.alternativeText}
               height={25}
               width={25}
             />
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>
