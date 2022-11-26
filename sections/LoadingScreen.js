@@ -1,8 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
+import {
+  NavigationProgress,
+  startNavigationProgress,
+} from "@mantine/nprogress";
+import { useEffect } from "react";
 
 function LoadingScreen() {
+  useEffect(() => {
+    startNavigationProgress();
+  }, []);
   return (
     <>
+      <NavigationProgress color="#33ff33" size={4} />
       <div
         style={{
           display: "flex",
