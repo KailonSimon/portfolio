@@ -107,6 +107,12 @@ function Hero({ resumeURL }) {
             size="lg"
             variant="outline"
             color="brand"
+            sx={(theme) => ({
+              background: theme.colors.dark[7],
+              ":hover": {
+                background: theme.colors.dark[5],
+              },
+            })}
           >
             <BrandGithub />
           </Button>
