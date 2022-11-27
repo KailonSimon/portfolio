@@ -542,7 +542,6 @@ li > a[class~="active"]::before {
   opacity: 0;
   z-index: 2;
   pointer-events: none;
-  animation: flicker 0.15s infinite;
 }
 .background::before {
   content: " ";
