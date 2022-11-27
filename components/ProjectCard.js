@@ -17,8 +17,8 @@ const useStyles = createStyles((theme) => ({
     padding: "1rem",
     border: "2px solid #000",
     boxShadow: "black 4px 4px 0 0",
-    height: 490,
     marginBottom: 10,
+    maxHeight: "calc(100vh - 6rem)",
   },
   projectCardTitle: {
     padding: "1rem",
@@ -32,12 +32,16 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
   },
   imageWrapper: {
-    height: "200px",
+    height: "18rem",
     maxWidth: "100%",
     aspectRatio: "16/9",
     position: "relative",
     [theme.fn.largerThan("md")]: {
       margin: "1rem auto",
+    },
+    [theme.fn.smallerThan("sm")]: {
+      height: "14rem",
+      maxHeight: "40vw",
     },
   },
   links: {

@@ -6,7 +6,7 @@ const useStyles = createStyles((theme) => ({
   content: {
     height: "fit-content",
     width: "100%",
-    maxWidth: 1280,
+    maxWidth: 1500,
     position: "relative",
     padding: "4em 0",
     [theme.fn.smallerThan("sm")]: {
