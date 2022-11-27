@@ -1,5 +1,3 @@
-import { ChevronUp } from "tabler-icons-react";
-
 const theme = {
   colorScheme: "dark",
   fontFamily: "VT323, sans-serif",
@@ -27,7 +25,7 @@ const theme = {
           color: params.variant === "filled" ? "#121212" : theme.brand,
           border: "2px solid #000",
           borderRadius: 4,
-          boxShadow: "black 4px 4px 0 0",
+          filter: "drop-shadow(0.2rem 0.2rem 0.25rem #000)",
           minWidth: "4rem",
           letterSpacing: 1.25,
           fontSize: 20,
@@ -44,7 +42,7 @@ const theme = {
       styles: (theme, params) => ({
         input: {
           border: "2px solid #000",
-          boxShadow: "black 4px 4px 0 0",
+          filter: "drop-shadow(0.5rem 0.2rem 0.25rem #000)",
           caretColor: theme.colors.brand,
           "&:focus": {
             borderColor: theme.colors.brand,
@@ -56,7 +54,7 @@ const theme = {
       styles: (theme, params) => ({
         input: {
           border: "2px solid #000",
-          boxShadow: "black 4px 4px 0 0",
+          filter: "drop-shadow(0.5rem 0.2rem 0.25rem #000)",
           caretColor: theme.colors.brand,
           "&:focus": {
             borderColor: theme.colors.brand,

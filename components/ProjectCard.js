@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
     padding: "1rem",
     border: "2px solid #000",
-    boxShadow: "black 4px 4px 0 0",
+    filter: "drop-shadow(0.5rem 0.2rem 0.25rem #000)",
     marginBottom: 10,
     maxHeight: "calc(100vh - 6rem)",
   },
@@ -117,6 +117,12 @@ export default function ProjectCard({ project }) {
           color="brand"
           variant="outline"
           size="lg"
+          sx={(theme) => ({
+            background: theme.colors.dark[7],
+            ":hover": {
+              background: theme.colors.dark[5],
+            },
+          })}
         >
           <BrandGithub />
         </Button>

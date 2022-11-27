@@ -12,7 +12,7 @@ const useStyles = createStyles((theme) => ({
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
     border: "2px solid #000",
-    boxShadow: "black 4px 4px 0 0",
+    filter: "drop-shadow(0.5rem 0.2rem 0.25rem #000)",
     [theme.fn.smallerThan("md")]: {
       minWidth: "15rem",
     },
