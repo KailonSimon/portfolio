@@ -13,7 +13,7 @@ const useStyles = createStyles((theme) => ({
     position: "relative",
   },
   background: {
-    opacity: 0.1,
+    opacity: 0.05,
     position: "fixed",
     height: "100vh",
     width: "100vw",
