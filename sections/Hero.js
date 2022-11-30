@@ -78,7 +78,7 @@ function Hero({ resumeURL }) {
           options={{
             strings: "Full Stack Web Developer.",
             autoStart: true,
-            loop: true,
+            loop: false,
             pauseFor: 3600,
             skipAddStyles: true,
             wrapperClassName: classes.title,
