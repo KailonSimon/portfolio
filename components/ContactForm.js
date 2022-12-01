@@ -17,6 +17,7 @@ const useStyles = createStyles((theme) => ({
     position: "relative",
     width: "100%",
     maxWidth: 600,
+    marginBottom: "10rem",
   },
   form: {
     borderRadius: 8,

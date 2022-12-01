@@ -28,12 +28,12 @@ function TechBadge({ name, image, imageAlt }) {
   return (
     <Badge
       leftSection={<Image src={image} alt={imageAlt} height={15} width={15} />}
-      size="lg"
+      size="xl"
       variant="filled"
-      style={{ background: "gray" }}
+      sx={{ background: "gray" }}
       component={motion.div}
       initial={{ scale: 1 }}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.2 }}
       transition={{ duration: 0.05 }}
       classNames={{
         root: classes.badge,

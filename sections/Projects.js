@@ -1,6 +1,7 @@
 import { createStyles, Title, Text } from "@mantine/core";
 import ProjectCard from "../components/ProjectCard";
 import Carousel from "../components/Carousel";
+import { useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   content: {
@@ -30,7 +31,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function Projects({ projects }) {
   const { classes } = useStyles();
-
+  const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <section id="projects" className={classes.content}>
       <Title order={2} component={Text} className={classes.title}>
@@ -38,9 +39,15 @@ export default function Projects({ projects }) {
       </Title>
       {projects ? (
         <Carousel
-          slides={projects.map((project) => (
-            <ProjectCard project={project.attributes} key={project.id} />
+          slides={projects.map((project, i) => (
+            <ProjectCard
+              project={project.attributes}
+              key={project.id}
+              selected={i === selectedIndex}
+            />
           ))}
+          selectedIndex={selectedIndex}
+          setSelectedIndex={(index) => setSelectedIndex(index)}
         />
       ) : null}
     </section>

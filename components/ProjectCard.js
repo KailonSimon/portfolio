@@ -36,6 +36,11 @@ const useStyles = createStyles((theme) => ({
     maxWidth: "100%",
     aspectRatio: "16/9",
     position: "relative",
+
+    ":hover": {
+      filter: "none",
+    },
+
     [theme.fn.largerThan("md")]: {
       margin: "1rem auto",
     },
@@ -52,12 +57,15 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, selected }) {
   const { classes } = useStyles();
   const { name, description, demoURL, githubURL, tech_badges } = project;
 
   return (
-    <div className={classes.projectCard}>
+    <div
+      className={classes.projectCard}
+      style={{ filter: selected ? "none" : "grayscale(100%) blur(2px)" }}
+    >
       <div>
         <Title order={3} align="center" style={{ letterSpacing: 1 }}>
           {name}
@@ -89,7 +97,9 @@ export default function ProjectCard({ project }) {
             src={project.thumbnail.data.attributes.url}
             alt={project.thumbnail.data.attributes.alternativeText}
             layout="fill"
-            style={{ borderRadius: 4 }}
+            style={{
+              borderRadius: 4,
+            }}
           />
         </div>
         <Text my={8} weight={500}>
@@ -106,6 +116,7 @@ export default function ProjectCard({ project }) {
           radius="xs"
           color="brand"
           size="lg"
+          disabled={!selected}
         >
           Live Demo
         </Button>
@@ -117,6 +128,7 @@ export default function ProjectCard({ project }) {
           color="brand"
           variant="outline"
           size="lg"
+          disabled={!selected}
           sx={(theme) => ({
             background: theme.colors.dark[7],
             ":hover": {

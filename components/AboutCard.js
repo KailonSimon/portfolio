@@ -8,11 +8,13 @@ const useStyles = createStyles((theme) => ({
   aboutCard: {
     position: "relative",
     minWidth: "14rem",
+    maxWidth: "25%",
     borderRadius: 8,
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
     border: "2px solid #000",
     filter: "drop-shadow(0.5rem 0.2rem 0.25rem #000)",
+    flex: "1",
     [theme.fn.smallerThan("md")]: {
       minWidth: "15rem",
     },

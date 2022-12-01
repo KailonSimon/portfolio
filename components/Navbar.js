@@ -69,7 +69,7 @@ const useStyles = createStyles((theme) => ({
 export default function Navbar({ resumeURL }) {
   const { classes } = useStyles();
   const [opened, setOpened] = useState(false);
-  const componentHeight = measureHeight() - 64;
+  //const componentHeight = measureHeight() - 64;
 
   return (
     <header className={classes.header}>
@@ -105,6 +105,7 @@ export default function Navbar({ resumeURL }) {
         withOverlay={false}
         transition="slide-down"
         styles={{
+          root: { zIndex: 998 },
           closeButton: { display: "none" },
           header: { display: "none" },
         }}
@@ -112,7 +113,7 @@ export default function Navbar({ resumeURL }) {
       >
         <div
           className={classes.drawerContent}
-          style={{ height: componentHeight }}
+          style={{ height: "calc(100vh - 4rem)" }}
         >
           <NavLinks
             mobile={true}

@@ -8,9 +8,9 @@ const DotButton = ({ selected, onClick }) => (
   />
 );
 
-function Carousel({ slides }) {
+function Carousel({ slides, selectedIndex, setSelectedIndex }) {
   const [viewportRef, embla] = useEmblaCarousel();
-  const [selectedIndex, setSelectedIndex] = useState(0);
+
   const [scrollSnaps, setScrollSnaps] = useState([]);
 
   const scrollTo = useCallback(

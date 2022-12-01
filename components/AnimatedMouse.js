@@ -2,7 +2,7 @@ import React from "react";
 
 function AnimatedMouse() {
   return (
-    <a href="#about">
+    <a href="#projects">
       <div id="mouse-scroll">
         <div className="mouse">
           <div className="mouse-in"></div>

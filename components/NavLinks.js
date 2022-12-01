@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { motion, useAnimation } from "framer-motion";
 import { createStyles } from "@mantine/core";
@@ -6,21 +6,26 @@ import { createStyles } from "@mantine/core";
 const useStyles = createStyles((theme) => ({
   navList: {
     display: "flex",
-    gap: "3rem",
+
     [theme.fn.smallerThan("md")]: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      gap: "5vh",
       flex: 1,
       width: 600,
       maxWidth: "100%",
     },
   },
   navItem: {
+    position: "relative",
     cursor: "pointer",
     color: theme.colors.brand,
+
+    ":not(:last-child)": {
+      marginRight: "3rem",
+    },
+
     [theme.fn.smallerThan("md")]: {
       width: "100%",
       display: "flex",
@@ -28,6 +33,9 @@ const useStyles = createStyles((theme) => ({
       "&:hover": {
         background: theme.colors.brand,
         color: "#121212",
+      },
+      ":not(:last-child)": {
+        margin: "0 0 5vh 0",
       },
     },
   },
@@ -59,6 +67,7 @@ const item = {
 function NavLinks({ mobile, handleClick, resumeURL }) {
   const { classes } = useStyles();
   const controls = useAnimation();
+  const [selected, setSelected] = useState(0);
 
   useEffect(() => {
     controls.start("show");
@@ -103,9 +112,14 @@ function NavLinks({ mobile, handleClick, resumeURL }) {
   }
   return (
     <ul className={classes.navList}>
-      {links.map((link) => {
+      {links.map((link, i) => {
         return (
-          <li className={classes.navItem} key={link.text}>
+          <motion.li
+            className={classes.navItem}
+            key={link.text}
+            animate={{ opacity: selected === i ? 1 : 0.5 }}
+            whileHover={{ opacity: 1 }}
+          >
             <Link
               to={link.href}
               spy={true}
@@ -113,10 +127,15 @@ function NavLinks({ mobile, handleClick, resumeURL }) {
               offset={-128}
               duration={250}
               activeClass="active"
+              onClick={() => setSelected(i)}
+              onSetActive={() => setSelected(i)}
             >
+              {selected === i ? (
+                <motion.div className="underline" layoutId="underline" />
+              ) : null}
               {link.text}
             </Link>
-          </li>
+          </motion.li>
         );
       })}
       <li className={classes.navItem}>

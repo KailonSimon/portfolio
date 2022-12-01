@@ -58,15 +58,18 @@ li > a {
 }
 
 li > a:hover {
-  background: var(--brand-color);
-  color: #121212;
+  color: var(--brand-color);
 }
 
-li > a[class~="active"]::before {
-  content: "▪";
-  margin: auto 4px auto 0;
-  display: inline-block;
-  vertical-align: text-top;
+.underline {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 0;
+  background: var(--brand-color);
+  opacity: 0.85;
 }
 
 * {

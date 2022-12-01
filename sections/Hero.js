@@ -1,4 +1,4 @@
-import { createStyles, Text, Title, Button, Loader } from "@mantine/core";
+import { createStyles, Text, Button } from "@mantine/core";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { BrandGithub } from "tabler-icons-react";
 import AnimatedMouse from "../components/AnimatedMouse";

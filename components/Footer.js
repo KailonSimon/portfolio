@@ -8,12 +8,14 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     fontSize: "1rem",
     fontWeight: 400,
-    minHeight: "12rem",
+    minHeight: "4rem",
     backgroundColor: "#121212",
     padding: "1rem",
     color: theme.colorScheme === "dark" ? theme.white : theme.colors.blue[3],
-    zIndex: 2,
     position: "relative",
+    zIndex: 998,
+    borderTopLeftRadius: 640,
+    borderTopRightRadius: 640,
   },
 }));
 
