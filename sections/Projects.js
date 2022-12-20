@@ -2,6 +2,7 @@ import { createStyles, Title, Text } from "@mantine/core";
 import ProjectCard from "../components/ProjectCard";
 import Carousel from "../components/Carousel";
 import { useState } from "react";
+import sortBy from "lodash/sortBy";
 
 const useStyles = createStyles((theme) => ({
   content: {
@@ -39,7 +40,9 @@ export default function Projects({ projects }) {
       </Title>
       {projects ? (
         <Carousel
-          slides={projects.map((project, i) => (
+          slides={sortBy(projects, [
+            (project) => project.attributes.priority,
+          ]).map((project, i) => (
             <ProjectCard
               project={project.attributes}
               key={project.id}
