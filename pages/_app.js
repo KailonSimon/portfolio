@@ -52,7 +52,6 @@ function MyApp({ Component, pageProps }) {
           </MantineProvider>
         </ColorSchemeProvider>
       )}
-      <div className="background" />
     </>
   );
 }
