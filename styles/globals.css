@@ -7,8 +7,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
-  background: #121212;
   height: 100%;
+  background-color: #121212;
 }
 
 body {
@@ -55,10 +55,6 @@ ul {
 
 li > a {
   padding: 2px 4px;
-}
-
-li > a:hover {
-  color: var(--brand-color);
 }
 
 .underline {
@@ -185,10 +181,6 @@ li > a:hover {
   width: 100%;
   height: 0.4rem;
   content: "";
-}
-
-.embla__dot.is-selected:after {
-  background-color: #33ff33;
 }
 
 /* Animated Mouse */
@@ -533,36 +525,119 @@ li > a:hover {
       -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
 }
-.background::after {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(18, 16, 16, 0.1);
-  opacity: 0;
-  z-index: 2;
-  pointer-events: none;
+
+.row > .column {
+  padding: 0 8px;
 }
-.background::before {
-  content: " ";
-  display: block;
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+.modal {
+  display: none;
   position: fixed;
-  top: 0;
+  z-index: 1;
+  padding-top: 100px;
   left: 0;
-  bottom: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
   right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-    linear-gradient(
-      90deg,
-      rgba(255, 0, 0, 0.06),
-      rgba(0, 255, 0, 0.02),
-      rgba(0, 0, 255, 0.06)
-    );
-  z-index: 998;
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
-  opacity: 0.4;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+img.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

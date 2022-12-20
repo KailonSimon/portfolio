@@ -2,6 +2,7 @@ import { BrandGithub } from "tabler-icons-react";
 import { createStyles, Button, Title, Text } from "@mantine/core";
 import TechBadge from "./TechBadge";
 import Image from "next/image";
+import sortBy from "lodash/sortBy";
 
 const useStyles = createStyles((theme) => ({
   projectCard: {
@@ -71,17 +72,19 @@ export default function ProjectCard({ project, selected }) {
           {name}
         </Title>
         <div className={classes.tags}>
-          {tech_badges.data.map((tag) => {
-            const { name, image } = tag.attributes;
-            return (
-              <TechBadge
-                name={name}
-                image={image.data.attributes.url}
-                imageAlt={image.data.attributes.alternativeText}
-                key={tag.id}
-              />
-            );
-          })}
+          {sortBy(tech_badges.data, [(tag) => tag.attributes.priority]).map(
+            (tag) => {
+              const { name, image } = tag.attributes;
+              return (
+                <TechBadge
+                  name={name}
+                  image={image.data.attributes.url}
+                  imageAlt={image.data.attributes.alternativeText}
+                  key={tag.id}
+                />
+              );
+            }
+          )}
         </div>
       </div>
 
