@@ -99,7 +99,8 @@ export default function ProjectCard({ project, selected }) {
           <Image
             src={project.thumbnail.data.attributes.url}
             alt={project.thumbnail.data.attributes.alternativeText}
-            layout="fill"
+            fill
+            sizes="512px"
             style={{
               borderRadius: 4,
             }}

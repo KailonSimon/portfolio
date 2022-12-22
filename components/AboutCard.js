@@ -1,8 +1,5 @@
-import { useRef } from "react";
 import Image from "next/image";
-import { createStyles, Title } from "@mantine/core";
-import { useIntersection } from "@mantine/hooks";
-import Typewriter from "typewriter-effect";
+import { createStyles, Text, Title } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   aboutCard: {
@@ -58,17 +55,13 @@ const useStyles = createStyles((theme) => ({
 
 function AboutCard({ title, skills }) {
   const { classes } = useStyles();
-  const containerRef = useRef();
-  const { ref, entry } = useIntersection({
-    root: containerRef.current,
-    threshold: 1,
-  });
+
   return (
     <div className={classes.aboutCard}>
       <Title order={3} className={classes.aboutCardTitle}>
         {title}
       </Title>
-      <div className={classes.aboutCardContent} ref={containerRef}>
+      <div className={classes.aboutCardContent}>
         {skills.map((skill) => (
           <div
             key={skill.id}
@@ -77,17 +70,10 @@ function AboutCard({ title, skills }) {
               alignItems: "center",
               gap: 8,
             }}
-            ref={ref}
           >
-            <Typewriter
-              options={{
-                autoStart: entry?.isIntersecting ? true : false,
-                strings: skill.attributes.name,
-                skipAddStyles: true,
-                wrapperClassName: classes.title,
-                cursorClassName: classes.titleCursor,
-              }}
-            />
+            <Text className={classes.title} size="xl">
+              {skill.attributes.name}
+            </Text>
             <Image
               src={skill.attributes.image.data.attributes.url}
               alt={skill.attributes.image.data.attributes.alternativeText}
