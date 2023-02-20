@@ -11,11 +11,9 @@ const useStyles = createStyles((theme) => ({
     minHeight: "4rem",
     backgroundColor: "#121212",
     padding: "1rem",
-    color: theme.colorScheme === "dark" ? theme.white : theme.colors.blue[3],
+    color: theme.white,
     position: "relative",
     zIndex: 998,
-    borderTopLeftRadius: 640,
-    borderTopRightRadius: 640,
   },
 }));
 

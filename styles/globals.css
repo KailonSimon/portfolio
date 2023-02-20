@@ -8,7 +8,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
   height: 100%;
-  background-color: #121212;
+  background: #5a5a5a;
 }
 
 body {

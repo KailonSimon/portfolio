@@ -2,7 +2,6 @@ import { Drawer, Burger, createStyles } from "@mantine/core";
 import { useState } from "react";
 import NavLinks from "./NavLinks";
 import Socials from "./Socials";
-import { measureHeight } from "react-div-100vh";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -69,7 +68,6 @@ const useStyles = createStyles((theme) => ({
 export default function Navbar({ resumeURL }) {
   const { classes } = useStyles();
   const [opened, setOpened] = useState(false);
-  //const componentHeight = measureHeight() - 64;
 
   return (
     <header className={classes.header}>

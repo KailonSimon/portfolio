@@ -20,9 +20,15 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    padding: "0 1rem",
-    width: "40rem",
+    padding: "2rem",
+    width: "48rem",
     maxWidth: "calc(100vw - 32px)",
+    backgroundColor:
+      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
+    borderRadius: 8,
+    border: "2px solid #000",
+    filter: "drop-shadow(0.5rem 0.2rem 0.25rem #000)",
+    gap: "0.5rem",
   },
   subtitle: {
     fontSize: "1.75rem",
@@ -35,6 +41,7 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 1,
     letterSpacing: 1.25,
     fontFamily: "VT323",
+    color: theme.colors.brand,
   },
   titleCursor: {
     fontSize: 48,
@@ -55,36 +62,14 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const variants = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: "-25vh" },
-};
-
 function Hero({ resumeURL }) {
   const { classes } = useStyles();
-  const { scrollYProgress } = useScroll();
-  const componentHeight = measureHeight() - 64;
-  const opacity = useTransform(scrollYProgress, (value) => 1 - value * 10);
 
   return (
-    <section
-      id="hero"
-      className={classes.content}
-      style={{ height: componentHeight > 0 ? componentHeight : "100vh" }}
-    >
+    <section id="hero" className={classes.content} style={{ height: "100vh" }}>
       <div className={classes.main}>
         <Text className={classes.subtitle}>{"Kailon Simon"}</Text>
-        <Typewriter
-          options={{
-            strings: "Full Stack Web Developer.",
-            autoStart: true,
-            loop: false,
-            pauseFor: 3600,
-            skipAddStyles: true,
-            wrapperClassName: classes.title,
-            cursorClassName: classes.titleCursor,
-          }}
-        />
+        <Text className={classes.title}>{"Full Stack Web Developer."}</Text>
         <div className={classes.controls}>
           <Button
             component="a"
@@ -117,19 +102,6 @@ function Hero({ resumeURL }) {
           </Button>
         </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: "-25px" }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        whileHover={{ translateY: "20px" }}
-        style={{
-          opacity,
-        }}
-        className={classes.scrollIcon}
-      >
-        <AnimatedMouse />
-      </motion.div>
     </section>
   );
 }

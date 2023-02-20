@@ -23,8 +23,7 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     textAlign: "center",
     padding: "0.5rem",
-    backgroundColor:
-      theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.white,
+    backgroundColor: "#5a5a5a",
     color: theme.colorScheme === "dark" ? theme.white : theme.colors.blue[3],
     letterSpacing: 2,
   },
@@ -47,9 +46,6 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 1,
     letterSpacing: 1.25,
     fontFamily: "VT323",
-  },
-  titleCursor: {
-    color: "transparent",
   },
 }));
 
