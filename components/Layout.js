@@ -16,16 +16,19 @@ const useStyles = createStyles((theme) => ({
   background: {
     position: "fixed",
     width: "100vw",
+    height: "100vh",
     overflow: "hidden",
     bottom: 0,
     zIndex: -999,
-    background: "#5a5a5a",
+    background: "#1c1b18",
   },
   backgroundSVG: {
     fill: "#fff",
     width: "127%",
     height: 390,
     transform: "rotate(180deg)",
+    display: "hidden",
+    opacity: "0",
   },
   foreground: {
     position: "fixed",

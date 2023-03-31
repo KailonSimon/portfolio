@@ -24,7 +24,7 @@ const theme = {
           background: params.variant === "filled" ? theme.brand : "transparent",
           color: params.variant === "filled" ? "#121212" : theme.brand,
           border: "2px solid #000",
-          borderRadius: 4,
+          borderRadius: 32,
           filter: "drop-shadow(0.2rem 0.2rem 0.25rem #000)",
           minWidth: "4rem",
           letterSpacing: 1.25,
