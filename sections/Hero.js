@@ -1,5 +1,7 @@
 import { createStyles, Text, Button } from "@mantine/core";
 import { BrandGithub } from "tabler-icons-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const useStyles = createStyles((theme) => ({
   content: {
@@ -23,10 +25,27 @@ const useStyles = createStyles((theme) => ({
     maxWidth: "calc(100vw - 32px)",
     gap: "0.5rem",
   },
-  subtitle: {
-    fontSize: "1.75rem",
-    fontWeight: 500,
-    marginBottom: -8,
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    [theme.fn.largerThan("sm")]: {
+      flexDirection: "row",
+    },
+    gap: "32px",
+    alignItems: "center",
+  },
+  avatarContainer: {
+    height: 256,
+    width: 256,
+    background: "#000",
+    borderRadius: "999px",
+    filter: "drop-shadow(0px 0.2rem 0.2rem #000)",
+    border: "2px solid #1c1b18",
+    overflow: "hidden",
+  },
+  avatar: {
+    height: "100%",
+    width: "100%",
   },
   title: {
     fontSize: "3rem",
@@ -35,6 +54,19 @@ const useStyles = createStyles((theme) => ({
     letterSpacing: 1.25,
     fontFamily: "VT323",
     color: theme.colors.brand,
+    textAlign: "center",
+    [theme.fn.largerThan("sm")]: {
+      textAlign: "left",
+    },
+  },
+  subtitle: {
+    fontSize: "1.75rem",
+    fontWeight: 500,
+    marginBottom: -8,
+    textAlign: "center",
+    [theme.fn.largerThan("sm")]: {
+      textAlign: "left",
+    },
   },
   titleCursor: {
     fontSize: 48,
@@ -61,40 +93,58 @@ function Hero() {
   return (
     <section id="hero" className={classes.content}>
       <div className={classes.main}>
-        <Text className={classes.title} align="center">
-          {"Hi, I'm Kailon."}
-        </Text>
-        <Text className={classes.subtitle} align="center">
-          {"Full Stack Web Developer"}
-        </Text>
-        <div className={classes.controls}>
-          <Button
-            component="a"
-            href="#projects"
-            uppercase
-            size="lg"
-            color="brand"
+        <div className={classes.container}>
+          <div className={classes.avatarContainer}>
+            <motion.div
+              className={classes.avatar}
+              initial={{ y: -256 }}
+              animate={{ y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+              }}
+            >
+              <Image src="/avatar.svg" fill alt="avatar" />
+            </motion.div>
+          </div>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "12px" }}
           >
-            My Projects
-          </Button>
-          <Button
-            component="a"
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/KailonSimon"
-            uppercase
-            size="lg"
-            variant="outline"
-            color="brand"
-            sx={(theme) => ({
-              background: theme.colors.dark[7],
-              ":hover": {
-                background: theme.colors.dark[5],
-              },
-            })}
-          >
-            <BrandGithub />
-          </Button>
+            <Text className={classes.title}>{"Hi, I'm Kailon."}</Text>
+            <Text className={classes.subtitle}>
+              {"Full Stack Web Developer"}
+            </Text>
+            <div className={classes.controls}>
+              <Button
+                component="a"
+                href="#projects"
+                uppercase
+                size="lg"
+                color="brand"
+              >
+                My Projects
+              </Button>
+              <Button
+                component="a"
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/KailonSimon"
+                uppercase
+                size="lg"
+                variant="outline"
+                color="brand"
+                sx={(theme) => ({
+                  background: theme.colors.dark[7],
+                  ":hover": {
+                    background: theme.colors.dark[5],
+                  },
+                })}
+              >
+                <BrandGithub />
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
