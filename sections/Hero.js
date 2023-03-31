@@ -80,9 +80,11 @@ const useStyles = createStyles((theme) => ({
   controls: {
     marginTop: 8,
     display: "flex",
+
     gap: 8,
     [theme.fn.smallerThan("sm")]: {
       marginTop: 16,
+      justifyContent: "center",
     },
   },
 }));
@@ -105,7 +107,13 @@ function Hero() {
                 damping: 10,
               }}
             >
-              <Image src="/avatar.svg" fill alt="avatar" />
+              <Image
+                src="/avatar.svg"
+                height={256}
+                width={256}
+                alt="avatar"
+                priority
+              />
             </motion.div>
           </div>
           <div
