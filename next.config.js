@@ -2,7 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["portfolio-content123.s3.amazonaws.com"],
+    remotePatterns: [
+      { 
+        protocol: 'https',
+        hostname: 'portfolio-content123.s3.amazonaws.com',
+        port: ''
+      }
+    ],
   },
 };
 
