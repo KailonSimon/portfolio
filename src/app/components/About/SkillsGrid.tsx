@@ -11,7 +11,7 @@ interface SkillsGridProps {
 
 const SkillsGrid: React.FC<SkillsGridProps> = ({ languages }) => {
   return (
-    <div className="bg-zinc-900 mt-16">
+    <div className="mt-16">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}

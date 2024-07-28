@@ -61,9 +61,9 @@ export default function ContactForm() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex px-4 mx-auto py-8"
+      className="flex px-4 mx-auto"
     >
-      <div className="isolate px-6 py-8 lg:px-8 mx-auto bg-zinc-900">
+      <div className="isolate mx-auto bg-zinc-900">
       <motion.div 
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
