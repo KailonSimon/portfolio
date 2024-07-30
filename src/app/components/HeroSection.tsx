@@ -35,6 +35,7 @@ const HeroSection: React.FC = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24"
         >
           <motion.div
@@ -94,8 +95,6 @@ const HeroSection: React.FC = () => {
             </div>
             <div className="flex gap-6 mt-6">
               <SocialLink href="https://github.com/KailonSimon" icon={BrandGithub} />
-              <SocialLink href="https://linkedin.com/in/kailonsimon" icon={BrandLinkedin} />
-              <SocialLink href="mailto:kailon@example.com" icon={Mail} />
             </div>
           </motion.div>
         </motion.div>

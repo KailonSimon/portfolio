@@ -23,6 +23,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ languages }) => {
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-4xl font-bold text-center text-green-500 mb-12"
         >
@@ -33,6 +34,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ languages }) => {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
+            viewport={{ once: true }} 
             transition={{ duration: 0.5, delay: 0.4 }}
             className="lg:w-1/2 space-y-6 text-zinc-300"
           >

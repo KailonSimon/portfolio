@@ -40,7 +40,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ projects }) => {
   return (
     <section id="projects" className="py-8 md:py-16 lg:py-24">
       <motion.div 
-        className="container mx-auto px-4"
+        className="container mx-auto px-4 w-full"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -66,7 +66,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <motion.div
-      className="bg-zinc-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 flex flex-col h-full"
+      className="bg-zinc-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 flex flex-col h-full border-2 border-zinc-800"
       variants={cardVariants}
     >
       <div className="relative h-48 overflow-hidden">
@@ -93,11 +93,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             ))}
           </div>
         </div>
-        <div className="flex justify-between items-center mt-auto">
+        <div className="flex justify-between items-center mt-auto gap-4">
           <Button
             asChild
             variant="default"
-            className="bg-green-500 text-zinc-900 hover:bg-green-400"
+            className="bg-green-500 text-zinc-900 hover:bg-green-400 flex-grow"
           >
            <a 
               href={project.attributes.demoURL}
@@ -111,7 +111,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <Button
             asChild
             variant="secondary"
-            className="bg-zinc-700 text-zinc-300 hover:bg-zinc-600"
+            className="bg-zinc-700 text-zinc-300 hover:bg-zinc-600 flex-grow"
           >
             <a
               href={project.attributes.githubURL}
