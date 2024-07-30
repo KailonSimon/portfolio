@@ -2,7 +2,6 @@ export const config = {
     externalLinks: {
       social: {
         github: "https://github.com/KailonSimon",
-        email: "mailto:kailonsimon@gmail.com",
       },
       navigation: {
         home: "/",

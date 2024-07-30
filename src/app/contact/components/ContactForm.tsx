@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -16,11 +16,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
-  phone: z.string().optional(),
   subject: z.string().optional(),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
@@ -34,20 +34,34 @@ export default function ContactForm() {
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
       subject: "",
       message: "",
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>, event?: React.BaseSyntheticEvent) {
+    if (event) {
+      event.preventDefault();
+    }
     setIsLoading(true);
     setSubmitStatus(null);
     try {
-      // Simulated API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setSubmitStatus("success");
-      form.reset();
+      if (!event?.target) {
+        throw new Error('Form event is missing');
+      }
+      const result = await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!!,
+        event.target as HTMLFormElement,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!!
+      );
+      
+      if (result.text === 'OK') {
+        setSubmitStatus("success");
+        form.reset();
+      } else {
+        throw new Error('Failed to send email');
+      }
     } catch (error) {
       setSubmitStatus("error");
       console.error("Submission error:", error);
@@ -55,6 +69,10 @@ export default function ContactForm() {
       setIsLoading(false);
     }
   }
+
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!!);
+  }, [])
 
   return (
     <motion.section 
@@ -95,7 +113,7 @@ export default function ContactForm() {
 </motion.div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="mx-auto mt-16 max-w-xl sm:mt-20 space-y-8">
-            {["name", "email", "phone", "subject"].map((field) => (
+            {["name", "email", "subject"].map((field) => (
               <motion.div
                 key={field}
                 initial={{ opacity: 0, x: -20 }}
