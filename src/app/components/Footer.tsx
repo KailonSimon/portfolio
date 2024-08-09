@@ -60,10 +60,10 @@ const Footer: React.FC = () => {
             </div>
           </div>
        
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 w-full">
             <h3 className="text-xl font-semibold mb-4 text-green-500">Get in Touch</h3>
             <p className="mb-4">Interested in working together? Let's connect!</p>
-            <Button className="w-full bg-green-600 hover:bg-green-500 text-white" asChild>
+            <Button className="w-full sm:max-w-xs bg-green-600 hover:bg-green-500 text-white" asChild>
               <Link href={config.externalLinks.navigation.contact}>
                 Contact Me
               </Link>
